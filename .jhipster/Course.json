@@ -1,0 +1,69 @@
+{
+  "name": "Course",
+  "fields": [
+    {
+      "fieldName": "prix",
+      "fieldType": "Integer",
+      "fieldValidateRules": [
+        "required",
+        "min"
+      ],
+      "fieldValidateRulesMin": "0"
+    },
+    {
+      "fieldName": "distance",
+      "fieldType": "Float",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "date",
+      "fieldType": "LocalDate",
+      "fieldValidateRules": [
+        "required"
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "coursier",
+      "otherEntityRelationshipName": "course",
+      "relationshipName": "coursier",
+      "otherEntityField": "id",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "commande",
+      "otherEntityRelationshipName": "course",
+      "relationshipName": "commande"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "panier",
+      "otherEntityRelationshipName": "course",
+      "relationshipName": "panier",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "coursier",
+      "otherEntityRelationshipName": "course",
+      "relationshipName": "coursier",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20210411185040",
+  "entityTableName": "course",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

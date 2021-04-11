@@ -1,0 +1,90 @@
+entity Client {
+    id Integer required
+    firstname String required
+    lastname String required
+    mail String required
+    phone String required
+    address String required
+}
+
+entity Coursier {
+    id Integer required
+    firstname String required
+    lastname String required
+    mail String required
+    phone String required
+    reviews Integer required min(1) max(5)
+}
+
+entity Commercant {
+    adresse String required
+}
+
+entity Utilisateur {
+    id Integer required
+    name String required
+    Firstname String required
+    mail String required
+    tel String required
+}
+
+entity Panier {
+    name String required
+    prix Integer required min(0)
+}
+
+entity Course {
+    prix Integer required min(0)
+    distance Float required
+    date LocalDate required
+}
+
+entity Produit {
+    name String required
+    prix Integer required min(0)
+    description String required
+}
+
+entity Commande {
+    date LocalDate required
+    prix Float required min(0)
+}
+
+entity Commerce {
+    adresse String required
+    noteCommerce Integer required min(0) max(5)
+    name String required
+}
+
+entity Restaurant {
+    name String required
+    resto TypeRestaurant required
+}
+
+enum TypeRestaurant {
+    Tacos, Pizzeria, Creperie, Burger, Boulangerie
+}
+
+relationship OneToMany {
+    Utilisateur to Panier
+    Commerce to Utilisateur
+    Panier to Commerce
+    Panier to Course
+    Client to Commande
+    Coursier to Course
+    Commerce to Produit
+    Course to Commande
+    Commerce to Commande
+    Produit to Commande
+}
+
+
+relationship ManyToMany {
+    Produit to Commerce
+    Panier to Produit
+}
+
+
+relationship OneToOne {
+    Course to Coursier
+}

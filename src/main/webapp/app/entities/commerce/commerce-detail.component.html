@@ -1,0 +1,44 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="commerce">
+            <h2><span jhiTranslate="jHipsterApp.commerce.detail.title">Commerce</span> {{ commerce.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="jHipsterApp.commerce.adresse">Adresse</span></dt>
+                <dd>
+                    <span>{{ commerce.adresse }}</span>
+                </dd>
+                <dt><span jhiTranslate="jHipsterApp.commerce.noteCommerce">Note Commerce</span></dt>
+                <dd>
+                    <span>{{ commerce.noteCommerce }}</span>
+                </dd>
+                <dt><span jhiTranslate="jHipsterApp.commerce.name">Name</span></dt>
+                <dd>
+                    <span>{{ commerce.name }}</span>
+                </dd>
+                <dt><span jhiTranslate="jHipsterApp.commerce.panier">Panier</span></dt>
+                <dd>
+                    <div *ngIf="commerce.panier">
+                        <a [routerLink]="['/panier', commerce.panier?.id, 'view']">{{ commerce.panier?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/commerce', commerce.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

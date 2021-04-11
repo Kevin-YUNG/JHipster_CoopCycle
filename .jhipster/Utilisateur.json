@@ -1,0 +1,59 @@
+{
+  "name": "Utilisateur",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "firstname",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "mail",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "tel",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "required"
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "panier",
+      "otherEntityRelationshipName": "utilisateur",
+      "relationshipName": "panier"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "commerce",
+      "otherEntityRelationshipName": "utilisateur",
+      "relationshipName": "commerce",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20210411184840",
+  "entityTableName": "utilisateur",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

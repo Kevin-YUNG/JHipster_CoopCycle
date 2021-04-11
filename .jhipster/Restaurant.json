@@ -1,0 +1,32 @@
+{
+  "name": "Restaurant",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "resto",
+      "fieldType": "TypeRestaurant",
+      "fieldValues": "Tacos,Pizzeria,Creperie,Burger,Boulangerie",
+      "fieldValidateRules": [
+        "required"
+      ]
+    }
+  ],
+  "relationships": [],
+  "changelogDate": "20210411185340",
+  "entityTableName": "restaurant",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

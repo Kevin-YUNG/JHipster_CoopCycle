@@ -1,0 +1,28 @@
+{
+  "jHipsterApp": {
+    "coursier": {
+      "home": {
+        "title": "Coursiers",
+        "createLabel": "Создать новый Coursier",
+        "createOrEditLabel": "Создать или отредактировать Coursier",
+        "notFound": "No Coursiers found"
+      },
+      "created": "Новый Coursier создан с идентификатором {{ param }}",
+      "updated": "Coursier обновлен с идентификатором {{ param }}",
+      "deleted": "Coursier удален с идентификатором {{ param }}",
+      "delete": {
+        "question": "Вы уверены что хотите удалить Coursier {{ id }}?"
+      },
+      "detail": {
+        "title": "Coursier"
+      },
+      "firstname": "Firstname",
+      "lastname": "Lastname",
+      "mail": "Mail",
+      "phone": "Phone",
+      "reviews": "Reviews",
+      "course": "Course",
+      "course": "Course"
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "jHipsterApp": {
+    "autreCommerce": {
+      "home": {
+        "title": "Autre Commerces",
+        "createLabel": "Создать новый Autre Commerce",
+        "createOrEditLabel": "Создать или отредактировать Autre Commerce",
+        "notFound": "No Autre Commerces found"
+      },
+      "created": "Новый Autre Commerce создан с идентификатором {{ param }}",
+      "updated": "Autre Commerce обновлен с идентификатором {{ param }}",
+      "deleted": "Autre Commerce удален с идентификатором {{ param }}",
+      "delete": {
+        "question": "Вы уверены что хотите удалить Autre Commerce {{ id }}?"
+      },
+      "detail": {
+        "title": "Autre Commerce"
+      },
+      "name": "Name"
+    }
+  }
+}

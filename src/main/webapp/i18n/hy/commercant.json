@@ -1,0 +1,22 @@
+{
+  "jHipsterApp": {
+    "commercant": {
+      "home": {
+        "title": "Commercants",
+        "createLabel": "Ստեղծել նոր Commercant",
+        "createOrEditLabel": "Ստեղծել կամ փոփոխել Commercant",
+        "notFound": "No Commercants found"
+      },
+      "created": "Նոր Commercant ստեղծված է {{ param }} նունացուցիչով",
+      "updated": "Commercant թարմացվաց է {{ param }} նունացուցիչով",
+      "deleted": "Commercant հեռացված է {{ param }}  նունացուցիչով",
+      "delete": {
+        "question": "Դուք վստահ ե՞ք, որ ցանկանում եք հեռացնել Commercant {{ id }}?"
+      },
+      "detail": {
+        "title": "Commercant"
+      },
+      "adresse": "Adresse"
+    }
+  }
+}

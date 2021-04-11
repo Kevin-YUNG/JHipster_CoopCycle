@@ -1,0 +1,22 @@
+{
+  "jHipsterApp": {
+    "autreCommerce": {
+      "home": {
+        "title": "Autre Commerces",
+        "createLabel": "创建新 Autre Commerce",
+        "createOrEditLabel": "创建或编辑 Autre Commerce",
+        "notFound": "No Autre Commerces found"
+      },
+      "created": "Autre Commerce {{ param }} 创建成功",
+      "updated": "Autre Commerce {{ param }} 更新成功",
+      "deleted": "Autre Commerce {{ param }} 删除成功",
+      "delete": {
+        "question": "你确定要删除 Autre Commerce {{ id }} 吗？"
+      },
+      "detail": {
+        "title": "Autre Commerce"
+      },
+      "name": "Name"
+    }
+  }
+}

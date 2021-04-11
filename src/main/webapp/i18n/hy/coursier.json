@@ -1,0 +1,28 @@
+{
+  "jHipsterApp": {
+    "coursier": {
+      "home": {
+        "title": "Coursiers",
+        "createLabel": "Ստեղծել նոր Coursier",
+        "createOrEditLabel": "Ստեղծել կամ փոփոխել Coursier",
+        "notFound": "No Coursiers found"
+      },
+      "created": "Նոր Coursier ստեղծված է {{ param }} նունացուցիչով",
+      "updated": "Coursier թարմացվաց է {{ param }} նունացուցիչով",
+      "deleted": "Coursier հեռացված է {{ param }}  նունացուցիչով",
+      "delete": {
+        "question": "Դուք վստահ ե՞ք, որ ցանկանում եք հեռացնել Coursier {{ id }}?"
+      },
+      "detail": {
+        "title": "Coursier"
+      },
+      "firstname": "Firstname",
+      "lastname": "Lastname",
+      "mail": "Mail",
+      "phone": "Phone",
+      "reviews": "Reviews",
+      "course": "Course",
+      "course": "Course"
+    }
+  }
+}

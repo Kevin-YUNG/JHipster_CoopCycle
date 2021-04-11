@@ -1,0 +1,28 @@
+{
+  "jHipsterApp": {
+    "coursier": {
+      "home": {
+        "title": "Coursiers",
+        "createLabel": "Coursier အသစ်ထည့်မည်",
+        "createOrEditLabel": "Coursier အသစ်ထည့်ခြင်း (သို့) ပြုပြင်ခြင်း",
+        "notFound": "No Coursiers found"
+      },
+      "created": "{{ param }} အိုင်ဒီဖြင့် Coursier အသစ်တစ်ခုအား ထည့်ပြီးပါပြီ။",
+      "updated": "{{ param }} အိုင်ဒီဖြင့် Coursier တစ်ခုအား ပြုပြင်ပြီးပါပြီ။",
+      "deleted": "{{ param }} အိုင်ဒီဖြင့် Coursier တစ်ခုအား ဖျက်ပြီးပါပြီ။",
+      "delete": {
+        "question": "Coursier {{ id }} အား ဖျက်ပါမည်။ သေချာပါသလား?"
+      },
+      "detail": {
+        "title": "Coursier"
+      },
+      "firstname": "Firstname",
+      "lastname": "Lastname",
+      "mail": "Mail",
+      "phone": "Phone",
+      "reviews": "Reviews",
+      "course": "Course",
+      "course": "Course"
+    }
+  }
+}

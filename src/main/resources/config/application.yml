@@ -144,15 +144,15 @@ jhipster:
     from: JHipster@localhost
   swagger:
     default-include-pattern: /api/.*
-    title: JHipster API
-    description: JHipster API documentation
+    title: JHipster API - CoopCycle
+    description: JHipster API documentation (CoopCycle)
     version: 0.0.1
-    terms-of-service-url:
-    contact-name:
-    contact-url:
-    contact-email:
-    license: unlicensed
-    license-url:
+    terms-of-service-url: https://coopcycle.org/TOS
+    contact-name: Patrick Trop
+    contact-url: https://wiki.coopcycle.org/fr:contact
+    contact-email: patrick.trop@coopcycle.org
+    license: CoopCycle
+    license-url: https://wiki.coopcycle.org/fr:license
 # ===================================================================
 # Application specific properties
 # Add your own application properties here, see the ApplicationProperties class

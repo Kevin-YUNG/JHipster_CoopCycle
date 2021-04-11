@@ -1,0 +1,22 @@
+{
+  "jHipsterApp": {
+    "commercant": {
+      "home": {
+        "title": "Commercants",
+        "createLabel": "Создать новый Commercant",
+        "createOrEditLabel": "Создать или отредактировать Commercant",
+        "notFound": "No Commercants found"
+      },
+      "created": "Новый Commercant создан с идентификатором {{ param }}",
+      "updated": "Commercant обновлен с идентификатором {{ param }}",
+      "deleted": "Commercant удален с идентификатором {{ param }}",
+      "delete": {
+        "question": "Вы уверены что хотите удалить Commercant {{ id }}?"
+      },
+      "detail": {
+        "title": "Commercant"
+      },
+      "adresse": "Adresse"
+    }
+  }
+}

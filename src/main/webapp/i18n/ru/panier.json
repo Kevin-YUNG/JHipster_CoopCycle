@@ -1,0 +1,27 @@
+{
+  "jHipsterApp": {
+    "panier": {
+      "home": {
+        "title": "Paniers",
+        "createLabel": "Создать новый Panier",
+        "createOrEditLabel": "Создать или отредактировать Panier",
+        "notFound": "No Paniers found"
+      },
+      "created": "Новый Panier создан с идентификатором {{ param }}",
+      "updated": "Panier обновлен с идентификатором {{ param }}",
+      "deleted": "Panier удален с идентификатором {{ param }}",
+      "delete": {
+        "question": "Вы уверены что хотите удалить Panier {{ id }}?"
+      },
+      "detail": {
+        "title": "Panier"
+      },
+      "name": "Name",
+      "prix": "Prix",
+      "commerce": "Commerce",
+      "course": "Course",
+      "produit": "Produit",
+      "utilisateur": "Utilisateur"
+    }
+  }
+}

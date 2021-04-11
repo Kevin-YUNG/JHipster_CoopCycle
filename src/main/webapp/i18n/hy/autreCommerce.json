@@ -1,0 +1,22 @@
+{
+  "jHipsterApp": {
+    "autreCommerce": {
+      "home": {
+        "title": "Autre Commerces",
+        "createLabel": "Ստեղծել նոր Autre Commerce",
+        "createOrEditLabel": "Ստեղծել կամ փոփոխել Autre Commerce",
+        "notFound": "No Autre Commerces found"
+      },
+      "created": "Նոր Autre Commerce ստեղծված է {{ param }} նունացուցիչով",
+      "updated": "Autre Commerce թարմացվաց է {{ param }} նունացուցիչով",
+      "deleted": "Autre Commerce հեռացված է {{ param }}  նունացուցիչով",
+      "delete": {
+        "question": "Դուք վստահ ե՞ք, որ ցանկանում եք հեռացնել Autre Commerce {{ id }}?"
+      },
+      "detail": {
+        "title": "Autre Commerce"
+      },
+      "name": "Name"
+    }
+  }
+}

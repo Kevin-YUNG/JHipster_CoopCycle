@@ -1,0 +1,27 @@
+{
+  "jHipsterApp": {
+    "utilisateur": {
+      "home": {
+        "title": "Utilisateurs",
+        "createLabel": "Создать новый Utilisateur",
+        "createOrEditLabel": "Создать или отредактировать Utilisateur",
+        "notFound": "No Utilisateurs found"
+      },
+      "created": "Новый Utilisateur создан с идентификатором {{ param }}",
+      "updated": "Utilisateur обновлен с идентификатором {{ param }}",
+      "deleted": "Utilisateur удален с идентификатором {{ param }}",
+      "delete": {
+        "question": "Вы уверены что хотите удалить Utilisateur {{ id }}?"
+      },
+      "detail": {
+        "title": "Utilisateur"
+      },
+      "name": "Name",
+      "firstname": "Firstname",
+      "mail": "Mail",
+      "tel": "Tel",
+      "panier": "Panier",
+      "commerce": "Commerce"
+    }
+  }
+}

@@ -1,0 +1,76 @@
+{
+  "name": "Commerce",
+  "fields": [
+    {
+      "fieldName": "adresse",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "noteCommerce",
+      "fieldType": "Integer",
+      "fieldValidateRules": [
+        "required",
+        "min",
+        "max"
+      ],
+      "fieldValidateRulesMin": "0",
+      "fieldValidateRulesMax": "5"
+    },
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "required"
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "utilisateur",
+      "otherEntityRelationshipName": "commerce",
+      "relationshipName": "utilisateur"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "produit",
+      "otherEntityRelationshipName": "commerce",
+      "relationshipName": "produit"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "commande",
+      "otherEntityRelationshipName": "commerce",
+      "relationshipName": "commande"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "panier",
+      "otherEntityRelationshipName": "commerce",
+      "relationshipName": "panier",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-many",
+      "otherEntityName": "produit",
+      "otherEntityRelationshipName": "commerce",
+      "relationshipName": "produit",
+      "otherEntityField": "id",
+      "ownerSide": false
+    }
+  ],
+  "changelogDate": "20210411185240",
+  "entityTableName": "commerce",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

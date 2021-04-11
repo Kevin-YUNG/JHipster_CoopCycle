@@ -1,0 +1,27 @@
+{
+  "jHipsterApp": {
+    "utilisateur": {
+      "home": {
+        "title": "Utilisateurs",
+        "createLabel": "Utilisateur အသစ်ထည့်မည်",
+        "createOrEditLabel": "Utilisateur အသစ်ထည့်ခြင်း (သို့) ပြုပြင်ခြင်း",
+        "notFound": "No Utilisateurs found"
+      },
+      "created": "{{ param }} အိုင်ဒီဖြင့် Utilisateur အသစ်တစ်ခုအား ထည့်ပြီးပါပြီ။",
+      "updated": "{{ param }} အိုင်ဒီဖြင့် Utilisateur တစ်ခုအား ပြုပြင်ပြီးပါပြီ။",
+      "deleted": "{{ param }} အိုင်ဒီဖြင့် Utilisateur တစ်ခုအား ဖျက်ပြီးပါပြီ။",
+      "delete": {
+        "question": "Utilisateur {{ id }} အား ဖျက်ပါမည်။ သေချာပါသလား?"
+      },
+      "detail": {
+        "title": "Utilisateur"
+      },
+      "name": "Name",
+      "firstname": "Firstname",
+      "mail": "Mail",
+      "tel": "Tel",
+      "panier": "Panier",
+      "commerce": "Commerce"
+    }
+  }
+}
