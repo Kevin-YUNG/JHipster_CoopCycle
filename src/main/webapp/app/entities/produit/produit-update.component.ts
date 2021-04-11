@@ -20,10 +20,9 @@ export class ProduitUpdateComponent implements OnInit {
 
   editForm = this.fb.group({
     id: [],
-    name: [null, [Validators.required]],
+    name: [null, [Validators.required, Validators.pattern('^[A-Z][a-z]+\\d$')]],
     prix: [null, [Validators.required, Validators.min(0)]],
     description: [null, [Validators.required]],
-    commerce: [],
     commerce: [],
   });
 
@@ -49,7 +48,6 @@ export class ProduitUpdateComponent implements OnInit {
       prix: produit.prix,
       description: produit.description,
       commerce: produit.commerce,
-      commerce: produit.commerce,
     });
   }
 
@@ -74,7 +72,6 @@ export class ProduitUpdateComponent implements OnInit {
       name: this.editForm.get(['name'])!.value,
       prix: this.editForm.get(['prix'])!.value,
       description: this.editForm.get(['description'])!.value,
-      commerce: this.editForm.get(['commerce'])!.value,
       commerce: this.editForm.get(['commerce'])!.value,
     };
   }

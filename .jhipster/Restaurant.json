@@ -2,22 +2,20 @@
   "name": "Restaurant",
   "fields": [
     {
-      "fieldName": "name",
-      "fieldType": "String",
-      "fieldValidateRules": [
-        "required"
-      ]
-    },
-    {
       "fieldName": "resto",
       "fieldType": "TypeRestaurant",
-      "fieldValues": "Tacos,Pizzeria,Creperie,Burger,Boulangerie",
-      "fieldValidateRules": [
-        "required"
-      ]
+      "fieldValues": "TACOS,PIZZERIA,CREPERIE,BURGER,BOULANGERIE"
     }
   ],
-  "relationships": [],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "commerce",
+      "otherEntityRelationshipName": "restaurant",
+      "relationshipName": "commerce",
+      "ownerSide": false
+    }
+  ],
   "changelogDate": "20210411185340",
   "entityTableName": "restaurant",
   "dto": "no",

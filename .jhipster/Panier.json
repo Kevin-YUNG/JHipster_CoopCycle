@@ -5,8 +5,10 @@
       "fieldName": "name",
       "fieldType": "String",
       "fieldValidateRules": [
-        "required"
-      ]
+        "required",
+        "pattern"
+      ],
+      "fieldValidateRulesPattern": "^[A-Z][a-z]+\\d$"
     },
     {
       "fieldName": "prix",

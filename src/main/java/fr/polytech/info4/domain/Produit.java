@@ -1,7 +1,6 @@
 package fr.polytech.info4.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
@@ -28,6 +27,7 @@ public class Produit implements Serializable {
     private Long id;
 
     @NotNull
+    @Pattern(regexp = "^[A-Z][a-z]+\\d$")
     @Column(name = "name", nullable = false)
     private String name;
 
@@ -40,20 +40,12 @@ public class Produit implements Serializable {
     @Column(name = "description", nullable = false)
     private String description;
 
-    @OneToMany(mappedBy = "produit")
-    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    private Set<Commande> commandes = new HashSet<>();
-
     @ManyToMany
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
     @JoinTable(name = "produit_commerce",
                joinColumns = @JoinColumn(name = "produit_id", referencedColumnName = "id"),
                inverseJoinColumns = @JoinColumn(name = "commerce_id", referencedColumnName = "id"))
     private Set<Commerce> commerce = new HashSet<>();
-
-    @ManyToOne
-    @JsonIgnoreProperties(value = "produits", allowSetters = true)
-    private Commerce commerce;
 
     @ManyToMany(mappedBy = "produits")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
@@ -108,31 +100,6 @@ public class Produit implements Serializable {
         this.description = description;
     }
 
-    public Set<Commande> getCommandes() {
-        return commandes;
-    }
-
-    public Produit commandes(Set<Commande> commandes) {
-        this.commandes = commandes;
-        return this;
-    }
-
-    public Produit addCommande(Commande commande) {
-        this.commandes.add(commande);
-        commande.setProduit(this);
-        return this;
-    }
-
-    public Produit removeCommande(Commande commande) {
-        this.commandes.remove(commande);
-        commande.setProduit(null);
-        return this;
-    }
-
-    public void setCommandes(Set<Commande> commandes) {
-        this.commandes = commandes;
-    }
-
     public Set<Commerce> getCommerce() {
         return commerce;
     }
@@ -155,19 +122,6 @@ public class Produit implements Serializable {
     }
 
     public void setCommerce(Set<Commerce> commerce) {
-        this.commerce = commerce;
-    }
-
-    public Commerce getCommerce() {
-        return commerce;
-    }
-
-    public Produit commerce(Commerce commerce) {
-        this.commerce = commerce;
-        return this;
-    }
-
-    public void setCommerce(Commerce commerce) {
         this.commerce = commerce;
     }
 

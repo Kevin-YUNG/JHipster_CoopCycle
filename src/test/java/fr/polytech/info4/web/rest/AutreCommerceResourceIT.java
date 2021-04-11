@@ -29,8 +29,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @WithMockUser
 public class AutreCommerceResourceIT {
 
-    private static final String DEFAULT_NAME = "AAAAAAAAAA";
-    private static final String UPDATED_NAME = "BBBBBBBBBB";
+    private static final String DEFAULT_TYPE_COMMERCE = "AAAAAAAAAA";
+    private static final String UPDATED_TYPE_COMMERCE = "BBBBBBBBBB";
 
     @Autowired
     private AutreCommerceRepository autreCommerceRepository;
@@ -51,7 +51,7 @@ public class AutreCommerceResourceIT {
      */
     public static AutreCommerce createEntity(EntityManager em) {
         AutreCommerce autreCommerce = new AutreCommerce()
-            .name(DEFAULT_NAME);
+            .typeCommerce(DEFAULT_TYPE_COMMERCE);
         return autreCommerce;
     }
     /**
@@ -62,7 +62,7 @@ public class AutreCommerceResourceIT {
      */
     public static AutreCommerce createUpdatedEntity(EntityManager em) {
         AutreCommerce autreCommerce = new AutreCommerce()
-            .name(UPDATED_NAME);
+            .typeCommerce(UPDATED_TYPE_COMMERCE);
         return autreCommerce;
     }
 
@@ -85,7 +85,7 @@ public class AutreCommerceResourceIT {
         List<AutreCommerce> autreCommerceList = autreCommerceRepository.findAll();
         assertThat(autreCommerceList).hasSize(databaseSizeBeforeCreate + 1);
         AutreCommerce testAutreCommerce = autreCommerceList.get(autreCommerceList.size() - 1);
-        assertThat(testAutreCommerce.getName()).isEqualTo(DEFAULT_NAME);
+        assertThat(testAutreCommerce.getTypeCommerce()).isEqualTo(DEFAULT_TYPE_COMMERCE);
     }
 
     @Test
@@ -110,10 +110,10 @@ public class AutreCommerceResourceIT {
 
     @Test
     @Transactional
-    public void checkNameIsRequired() throws Exception {
+    public void checkTypeCommerceIsRequired() throws Exception {
         int databaseSizeBeforeTest = autreCommerceRepository.findAll().size();
         // set the field null
-        autreCommerce.setName(null);
+        autreCommerce.setTypeCommerce(null);
 
         // Create the AutreCommerce, which fails.
 
@@ -138,7 +138,7 @@ public class AutreCommerceResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(autreCommerce.getId().intValue())))
-            .andExpect(jsonPath("$.[*].name").value(hasItem(DEFAULT_NAME)));
+            .andExpect(jsonPath("$.[*].typeCommerce").value(hasItem(DEFAULT_TYPE_COMMERCE)));
     }
     
     @Test
@@ -152,7 +152,7 @@ public class AutreCommerceResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.id").value(autreCommerce.getId().intValue()))
-            .andExpect(jsonPath("$.name").value(DEFAULT_NAME));
+            .andExpect(jsonPath("$.typeCommerce").value(DEFAULT_TYPE_COMMERCE));
     }
     @Test
     @Transactional
@@ -175,7 +175,7 @@ public class AutreCommerceResourceIT {
         // Disconnect from session so that the updates on updatedAutreCommerce are not directly saved in db
         em.detach(updatedAutreCommerce);
         updatedAutreCommerce
-            .name(UPDATED_NAME);
+            .typeCommerce(UPDATED_TYPE_COMMERCE);
 
         restAutreCommerceMockMvc.perform(put("/api/autre-commerces")
             .contentType(MediaType.APPLICATION_JSON)
@@ -186,7 +186,7 @@ public class AutreCommerceResourceIT {
         List<AutreCommerce> autreCommerceList = autreCommerceRepository.findAll();
         assertThat(autreCommerceList).hasSize(databaseSizeBeforeUpdate);
         AutreCommerce testAutreCommerce = autreCommerceList.get(autreCommerceList.size() - 1);
-        assertThat(testAutreCommerce.getName()).isEqualTo(UPDATED_NAME);
+        assertThat(testAutreCommerce.getTypeCommerce()).isEqualTo(UPDATED_TYPE_COMMERCE);
     }
 
     @Test

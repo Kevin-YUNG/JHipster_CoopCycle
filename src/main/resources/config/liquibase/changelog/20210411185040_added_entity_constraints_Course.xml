@@ -8,23 +8,11 @@
     -->
     <changeSet id="20210411185040-2" author="jhipster">
         
-        <addForeignKeyConstraint baseColumnNames="coursier_id"
-                                 baseTableName="course"
-                                 constraintName="fk_course_coursier_id"
-                                 referencedColumnNames="id"
-                                 referencedTableName="coursier"/>
-
         <addForeignKeyConstraint baseColumnNames="panier_id"
                                  baseTableName="course"
                                  constraintName="fk_course_panier_id"
                                  referencedColumnNames="id"
                                  referencedTableName="panier"/>
-
-        <addForeignKeyConstraint baseColumnNames="coursier_id"
-                                 baseTableName="course"
-                                 constraintName="fk_course_coursier_id"
-                                 referencedColumnNames="id"
-                                 referencedTableName="coursier"/>
 
     </changeSet>
 </databaseChangeLog>

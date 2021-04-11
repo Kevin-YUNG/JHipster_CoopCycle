@@ -9,42 +9,47 @@
       ]
     },
     {
-      "fieldName": "noteCommerce",
-      "fieldType": "Integer",
-      "fieldValidateRules": [
-        "required",
-        "min",
-        "max"
-      ],
-      "fieldValidateRulesMin": "0",
-      "fieldValidateRulesMax": "5"
-    },
-    {
       "fieldName": "name",
       "fieldType": "String",
       "fieldValidateRules": [
         "required"
       ]
+    },
+    {
+      "fieldName": "noteCommerce",
+      "fieldType": "Integer",
+      "fieldValidateRules": [
+        "min",
+        "max"
+      ],
+      "fieldValidateRulesMin": "0",
+      "fieldValidateRulesMax": "5"
     }
   ],
   "relationships": [
     {
-      "relationshipType": "one-to-many",
+      "relationshipType": "one-to-one",
       "otherEntityName": "utilisateur",
       "otherEntityRelationshipName": "commerce",
-      "relationshipName": "utilisateur"
+      "relationshipName": "utilisateur",
+      "otherEntityField": "id",
+      "ownerSide": true
     },
     {
-      "relationshipType": "one-to-many",
-      "otherEntityName": "produit",
+      "relationshipType": "one-to-one",
+      "otherEntityName": "restaurant",
       "otherEntityRelationshipName": "commerce",
-      "relationshipName": "produit"
+      "relationshipName": "restaurant",
+      "otherEntityField": "id",
+      "ownerSide": true
     },
     {
-      "relationshipType": "one-to-many",
-      "otherEntityName": "commande",
+      "relationshipType": "one-to-one",
+      "otherEntityName": "autreCommerce",
       "otherEntityRelationshipName": "commerce",
-      "relationshipName": "commande"
+      "relationshipName": "autreCommerce",
+      "otherEntityField": "id",
+      "ownerSide": true
     },
     {
       "relationshipType": "many-to-one",

@@ -13,11 +13,12 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
 
 /**
  * REST controller for managing {@link fr.polytech.info4.domain.Restaurant}.
@@ -48,7 +49,7 @@ public class RestaurantResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PostMapping("/restaurants")
-    public ResponseEntity<Restaurant> createRestaurant(@Valid @RequestBody Restaurant restaurant) throws URISyntaxException {
+    public ResponseEntity<Restaurant> createRestaurant(@RequestBody Restaurant restaurant) throws URISyntaxException {
         log.debug("REST request to save Restaurant : {}", restaurant);
         if (restaurant.getId() != null) {
             throw new BadRequestAlertException("A new restaurant cannot already have an ID", ENTITY_NAME, "idexists");
@@ -69,7 +70,7 @@ public class RestaurantResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PutMapping("/restaurants")
-    public ResponseEntity<Restaurant> updateRestaurant(@Valid @RequestBody Restaurant restaurant) throws URISyntaxException {
+    public ResponseEntity<Restaurant> updateRestaurant(@RequestBody Restaurant restaurant) throws URISyntaxException {
         log.debug("REST request to update Restaurant : {}", restaurant);
         if (restaurant.getId() == null) {
             throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");
@@ -83,10 +84,18 @@ public class RestaurantResource {
     /**
      * {@code GET  /restaurants} : get all the restaurants.
      *
+     * @param filter the filter of the request.
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of restaurants in body.
      */
     @GetMapping("/restaurants")
-    public List<Restaurant> getAllRestaurants() {
+    public List<Restaurant> getAllRestaurants(@RequestParam(required = false) String filter) {
+        if ("commerce-is-null".equals(filter)) {
+            log.debug("REST request to get all Restaurants where commerce is null");
+            return StreamSupport
+                .stream(restaurantRepository.findAll().spliterator(), false)
+                .filter(restaurant -> restaurant.getCommerce() == null)
+                .collect(Collectors.toList());
+        }
         log.debug("REST request to get all Restaurants");
         return restaurantRepository.findAll();
     }

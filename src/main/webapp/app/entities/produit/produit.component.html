@@ -27,7 +27,6 @@
                     <th scope="col" ><span jhiTranslate="jHipsterApp.produit.prix">Prix</span></th>
                     <th scope="col" ><span jhiTranslate="jHipsterApp.produit.description">Description</span></th>
                     <th scope="col" ><span jhiTranslate="jHipsterApp.produit.commerce">Commerce</span></th>
-                    <th scope="col" ><span jhiTranslate="jHipsterApp.produit.commerce">Commerce</span></th>
                     <th scope="col"></th>
                 </tr>
             </thead>
@@ -41,11 +40,6 @@
                         <span *ngFor="let commerce of produit.commerce; let last = last">
                             <a class="form-control-static" [routerLink]="['/commerce', commerce?.id, 'view']">{{ commerce.id }}</a>{{ last ? '' : ', ' }}
                         </span>
-                    </td>
-                    <td>
-                        <div *ngIf="produit.commerce">
-                            <a [routerLink]="['/commerce', produit.commerce?.id, 'view']" >{{ produit.commerce?.id }}</a>
-                        </div>
                     </td>
                     <td class="text-right">
                         <div class="btn-group">

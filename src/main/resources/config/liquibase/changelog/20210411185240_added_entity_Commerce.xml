@@ -18,11 +18,20 @@
             <column name="adresse" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
-            <column name="note_commerce" type="integer">
-                <constraints nullable="false" />
-            </column>
             <column name="name" type="varchar(255)">
                 <constraints nullable="false" />
+            </column>
+            <column name="note_commerce" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="utilisateur_id" type="bigint">
+                <constraints unique="true" nullable="true" uniqueConstraintName="ux_commerce_utilisateur_id" />
+            </column>
+            <column name="restaurant_id" type="bigint">
+                <constraints unique="true" nullable="true" uniqueConstraintName="ux_commerce_restaurant_id" />
+            </column>
+            <column name="autre_commerce_id" type="bigint">
+                <constraints unique="true" nullable="true" uniqueConstraintName="ux_commerce_autre_commerce_id" />
             </column>
             <column name="panier_id" type="bigint">
                 <constraints nullable="true" />
@@ -51,8 +60,8 @@
                   tableName="commerce">
             <column name="id" type="numeric"/>
             <column name="adresse" type="string"/>
-            <column name="note_commerce" type="numeric"/>
             <column name="name" type="string"/>
+            <column name="note_commerce" type="numeric"/>
             <!-- jhipster-needle-liquibase-add-loadcolumn - JHipster (and/or extensions) can add load columns here -->
         </loadData>
     </changeSet>

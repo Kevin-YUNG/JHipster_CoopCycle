@@ -43,16 +43,10 @@
   ],
   "relationships": [
     {
-      "relationshipType": "one-to-many",
-      "otherEntityName": "course",
-      "otherEntityRelationshipName": "coursier",
-      "relationshipName": "course"
-    },
-    {
       "relationshipType": "one-to-one",
-      "otherEntityName": "course",
+      "otherEntityName": "utilisateur",
       "otherEntityRelationshipName": "coursier",
-      "relationshipName": "course",
+      "relationshipName": "utilisateur",
       "ownerSide": false
     }
   ],

@@ -23,14 +23,14 @@
             <thead>
                 <tr>
                     <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
-                    <th scope="col" ><span jhiTranslate="jHipsterApp.autreCommerce.name">Name</span></th>
+                    <th scope="col" ><span jhiTranslate="jHipsterApp.autreCommerce.typeCommerce">Type Commerce</span></th>
                     <th scope="col"></th>
                 </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let autreCommerce of autreCommerces ;trackBy: trackId">
                     <td><a [routerLink]="['/autre-commerce', autreCommerce.id, 'view']">{{ autreCommerce.id }}</a></td>
-                    <td>{{ autreCommerce.name }}</td>
+                    <td>{{ autreCommerce.typeCommerce }}</td>
                     <td class="text-right">
                         <div class="btn-group">
                             <button type="submit"

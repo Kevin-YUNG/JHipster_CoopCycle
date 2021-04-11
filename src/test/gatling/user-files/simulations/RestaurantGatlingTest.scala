@@ -72,8 +72,7 @@ class RestaurantGatlingTest extends Simulation {
             .headers(headers_http_authenticated)
             .body(StringBody("""{
                 "id":null
-                , "name":"SAMPLE_TEXT"
-                , "resto":"Tacos"
+                , "resto":"TACOS"
                 }""")).asJson
             .check(status.is(201))
             .check(headerRegex("Location", "(.*)").saveAs("new_restaurant_url"))).exitHereIfFailed

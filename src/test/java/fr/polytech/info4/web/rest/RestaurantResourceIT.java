@@ -30,11 +30,8 @@ import fr.polytech.info4.domain.enumeration.TypeRestaurant;
 @WithMockUser
 public class RestaurantResourceIT {
 
-    private static final String DEFAULT_NAME = "AAAAAAAAAA";
-    private static final String UPDATED_NAME = "BBBBBBBBBB";
-
-    private static final TypeRestaurant DEFAULT_RESTO = TypeRestaurant.Tacos;
-    private static final TypeRestaurant UPDATED_RESTO = TypeRestaurant.Pizzeria;
+    private static final TypeRestaurant DEFAULT_RESTO = TypeRestaurant.TACOS;
+    private static final TypeRestaurant UPDATED_RESTO = TypeRestaurant.PIZZERIA;
 
     @Autowired
     private RestaurantRepository restaurantRepository;
@@ -55,7 +52,6 @@ public class RestaurantResourceIT {
      */
     public static Restaurant createEntity(EntityManager em) {
         Restaurant restaurant = new Restaurant()
-            .name(DEFAULT_NAME)
             .resto(DEFAULT_RESTO);
         return restaurant;
     }
@@ -67,7 +63,6 @@ public class RestaurantResourceIT {
      */
     public static Restaurant createUpdatedEntity(EntityManager em) {
         Restaurant restaurant = new Restaurant()
-            .name(UPDATED_NAME)
             .resto(UPDATED_RESTO);
         return restaurant;
     }
@@ -91,7 +86,6 @@ public class RestaurantResourceIT {
         List<Restaurant> restaurantList = restaurantRepository.findAll();
         assertThat(restaurantList).hasSize(databaseSizeBeforeCreate + 1);
         Restaurant testRestaurant = restaurantList.get(restaurantList.size() - 1);
-        assertThat(testRestaurant.getName()).isEqualTo(DEFAULT_NAME);
         assertThat(testRestaurant.getResto()).isEqualTo(DEFAULT_RESTO);
     }
 
@@ -117,44 +111,6 @@ public class RestaurantResourceIT {
 
     @Test
     @Transactional
-    public void checkNameIsRequired() throws Exception {
-        int databaseSizeBeforeTest = restaurantRepository.findAll().size();
-        // set the field null
-        restaurant.setName(null);
-
-        // Create the Restaurant, which fails.
-
-
-        restRestaurantMockMvc.perform(post("/api/restaurants")
-            .contentType(MediaType.APPLICATION_JSON)
-            .content(TestUtil.convertObjectToJsonBytes(restaurant)))
-            .andExpect(status().isBadRequest());
-
-        List<Restaurant> restaurantList = restaurantRepository.findAll();
-        assertThat(restaurantList).hasSize(databaseSizeBeforeTest);
-    }
-
-    @Test
-    @Transactional
-    public void checkRestoIsRequired() throws Exception {
-        int databaseSizeBeforeTest = restaurantRepository.findAll().size();
-        // set the field null
-        restaurant.setResto(null);
-
-        // Create the Restaurant, which fails.
-
-
-        restRestaurantMockMvc.perform(post("/api/restaurants")
-            .contentType(MediaType.APPLICATION_JSON)
-            .content(TestUtil.convertObjectToJsonBytes(restaurant)))
-            .andExpect(status().isBadRequest());
-
-        List<Restaurant> restaurantList = restaurantRepository.findAll();
-        assertThat(restaurantList).hasSize(databaseSizeBeforeTest);
-    }
-
-    @Test
-    @Transactional
     public void getAllRestaurants() throws Exception {
         // Initialize the database
         restaurantRepository.saveAndFlush(restaurant);
@@ -164,7 +120,6 @@ public class RestaurantResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(restaurant.getId().intValue())))
-            .andExpect(jsonPath("$.[*].name").value(hasItem(DEFAULT_NAME)))
             .andExpect(jsonPath("$.[*].resto").value(hasItem(DEFAULT_RESTO.toString())));
     }
     
@@ -179,7 +134,6 @@ public class RestaurantResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.id").value(restaurant.getId().intValue()))
-            .andExpect(jsonPath("$.name").value(DEFAULT_NAME))
             .andExpect(jsonPath("$.resto").value(DEFAULT_RESTO.toString()));
     }
     @Test
@@ -203,7 +157,6 @@ public class RestaurantResourceIT {
         // Disconnect from session so that the updates on updatedRestaurant are not directly saved in db
         em.detach(updatedRestaurant);
         updatedRestaurant
-            .name(UPDATED_NAME)
             .resto(UPDATED_RESTO);
 
         restRestaurantMockMvc.perform(put("/api/restaurants")
@@ -215,7 +168,6 @@ public class RestaurantResourceIT {
         List<Restaurant> restaurantList = restaurantRepository.findAll();
         assertThat(restaurantList).hasSize(databaseSizeBeforeUpdate);
         Restaurant testRestaurant = restaurantList.get(restaurantList.size() - 1);
-        assertThat(testRestaurant.getName()).isEqualTo(UPDATED_NAME);
         assertThat(testRestaurant.getResto()).isEqualTo(UPDATED_RESTO);
     }
 

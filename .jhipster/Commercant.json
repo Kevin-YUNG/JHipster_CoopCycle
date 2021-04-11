@@ -9,7 +9,15 @@
       ]
     }
   ],
-  "relationships": [],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "utilisateur",
+      "otherEntityRelationshipName": "commercant",
+      "relationshipName": "utilisateur",
+      "ownerSide": false
+    }
+  ],
   "changelogDate": "20210411184740",
   "entityTableName": "commercant",
   "dto": "no",

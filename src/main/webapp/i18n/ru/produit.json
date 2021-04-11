@@ -19,8 +19,6 @@
       "name": "Name",
       "prix": "Prix",
       "description": "Description",
-      "commande": "Commande",
-      "commerce": "Commerce",
       "commerce": "Commerce",
       "panier": "Panier"
     }

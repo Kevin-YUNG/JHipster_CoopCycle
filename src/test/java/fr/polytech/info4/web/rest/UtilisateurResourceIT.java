@@ -29,11 +29,11 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @WithMockUser
 public class UtilisateurResourceIT {
 
-    private static final String DEFAULT_NAME = "AAAAAAAAAA";
-    private static final String UPDATED_NAME = "BBBBBBBBBB";
+    private static final String DEFAULT_NAME = "Ubj3";
+    private static final String UPDATED_NAME = "Bvwykz4";
 
-    private static final String DEFAULT_FIRSTNAME = "AAAAAAAAAA";
-    private static final String UPDATED_FIRSTNAME = "BBBBBBBBBB";
+    private static final String DEFAULT_FIRSTNAME = "Yim9";
+    private static final String UPDATED_FIRSTNAME = "Jhefny1";
 
     private static final String DEFAULT_MAIL = "AAAAAAAAAA";
     private static final String UPDATED_MAIL = "BBBBBBBBBB";

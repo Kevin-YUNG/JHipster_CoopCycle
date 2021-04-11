@@ -26,9 +26,7 @@
                     <th scope="col" ><span jhiTranslate="jHipsterApp.course.prix">Prix</span></th>
                     <th scope="col" ><span jhiTranslate="jHipsterApp.course.distance">Distance</span></th>
                     <th scope="col" ><span jhiTranslate="jHipsterApp.course.date">Date</span></th>
-                    <th scope="col" ><span jhiTranslate="jHipsterApp.course.coursier">Coursier</span></th>
                     <th scope="col" ><span jhiTranslate="jHipsterApp.course.panier">Panier</span></th>
-                    <th scope="col" ><span jhiTranslate="jHipsterApp.course.coursier">Coursier</span></th>
                     <th scope="col"></th>
                 </tr>
             </thead>
@@ -39,18 +37,8 @@
                     <td>{{ course.distance }}</td>
                     <td>{{ course.date | date:'mediumDate' }}</td>
                     <td>
-                        <div *ngIf="course.coursier">
-                            <a [routerLink]="['/coursier', course.coursier?.id, 'view']" >{{ course.coursier?.id }}</a>
-                        </div>
-                    </td>
-                    <td>
                         <div *ngIf="course.panier">
                             <a [routerLink]="['/panier', course.panier?.id, 'view']" >{{ course.panier?.id }}</a>
-                        </div>
-                    </td>
-                    <td>
-                        <div *ngIf="course.coursier">
-                            <a [routerLink]="['/coursier', course.coursier?.id, 'view']" >{{ course.coursier?.id }}</a>
                         </div>
                     </td>
                     <td class="text-right">

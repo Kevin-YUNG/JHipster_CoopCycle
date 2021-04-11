@@ -5,8 +5,10 @@
       "fieldName": "name",
       "fieldType": "String",
       "fieldValidateRules": [
-        "required"
-      ]
+        "required",
+        "pattern"
+      ],
+      "fieldValidateRulesPattern": "^[A-Z][a-z]+\\d$"
     },
     {
       "fieldName": "prix",
@@ -27,25 +29,12 @@
   ],
   "relationships": [
     {
-      "relationshipType": "one-to-many",
-      "otherEntityName": "commande",
-      "otherEntityRelationshipName": "produit",
-      "relationshipName": "commande"
-    },
-    {
       "relationshipType": "many-to-many",
       "otherEntityName": "commerce",
       "otherEntityRelationshipName": "produit",
       "relationshipName": "commerce",
       "otherEntityField": "id",
       "ownerSide": true
-    },
-    {
-      "relationshipType": "many-to-one",
-      "otherEntityName": "commerce",
-      "otherEntityRelationshipName": "produit",
-      "relationshipName": "commerce",
-      "otherEntityField": "id"
     },
     {
       "relationshipType": "many-to-many",

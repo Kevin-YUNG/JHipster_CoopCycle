@@ -17,11 +17,11 @@
         "title": "Commerce"
       },
       "adresse": "Adresse",
-      "noteCommerce": "Note Commerce",
       "name": "Name",
+      "noteCommerce": "Note Commerce",
       "utilisateur": "Utilisateur",
-      "produit": "Produit",
-      "commande": "Commande",
+      "restaurant": "Restaurant",
+      "autreCommerce": "Autre Commerce",
       "panier": "Panier",
       "produit": "Produit"
     }

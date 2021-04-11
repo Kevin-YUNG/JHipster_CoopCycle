@@ -35,16 +35,6 @@
                     <label class="form-control-label" jhiTranslate="jHipsterApp.course.distance" for="field_distance">Distance</label>
                     <input type="number" class="form-control" name="distance" id="field_distance"
                            formControlName="distance"/>
-                    <div *ngIf="editForm.get('distance')!.invalid && (editForm.get('distance')!.dirty || editForm.get('distance')!.touched)">
-                        <small class="form-text text-danger"
-                               *ngIf="editForm.get('distance')?.errors?.required" jhiTranslate="entity.validation.required">
-                        This field is required.
-                        </small>
-                        <small class="form-text text-danger"
-                            [hidden]="!editForm.get('distance')?.errors?.number" jhiTranslate="entity.validation.number">
-                            This field should be a number.
-                        </small>
-                    </div>
                 </div>
 
                 <div class="form-group">
@@ -64,26 +54,10 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="jHipsterApp.course.coursier" for="field_coursier">Coursier</label>
-                    <select class="form-control" id="field_coursier" name="coursier" formControlName="coursier">
-                        <option [ngValue]="null"></option>
-                        <option [ngValue]="coursierOption.id === editForm.get('coursier')!.value?.id ? editForm.get('coursier')!.value : coursierOption" *ngFor="let coursierOption of coursiers; trackBy: trackById">{{ coursierOption.id }}</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
                     <label class="form-control-label" jhiTranslate="jHipsterApp.course.panier" for="field_panier">Panier</label>
                     <select class="form-control" id="field_panier" name="panier" formControlName="panier">
                         <option [ngValue]="null"></option>
                         <option [ngValue]="panierOption.id === editForm.get('panier')!.value?.id ? editForm.get('panier')!.value : panierOption" *ngFor="let panierOption of paniers; trackBy: trackById">{{ panierOption.id }}</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="jHipsterApp.course.coursier" for="field_coursier">Coursier</label>
-                    <select class="form-control" id="field_coursier" name="coursier" formControlName="coursier">
-                        <option [ngValue]="null"></option>
-                        <option [ngValue]="coursierOption.id === editForm.get('coursier')!.value?.id ? editForm.get('coursier')!.value : coursierOption" *ngFor="let coursierOption of coursiers; trackBy: trackById">{{ coursierOption.id }}</option>
                     </select>
                 </div>
             </div>

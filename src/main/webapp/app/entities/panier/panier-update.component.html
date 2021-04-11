@@ -20,6 +20,10 @@
                                *ngIf="editForm.get('name')?.errors?.required" jhiTranslate="entity.validation.required">
                         This field is required.
                         </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('name')?.errors?.pattern" jhiTranslate="entity.validation.pattern" [translateValues]="{ pattern: 'Name' }">
+                            This field should follow pattern for "Name".
+                        </small>
                     </div>
                 </div>
 

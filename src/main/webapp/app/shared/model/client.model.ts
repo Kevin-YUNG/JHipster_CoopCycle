@@ -1,4 +1,4 @@
-import { ICommande } from 'app/shared/model/commande.model';
+import { IUtilisateur } from 'app/shared/model/utilisateur.model';
 
 export interface IClient {
   id?: number;
@@ -7,7 +7,7 @@ export interface IClient {
   mail?: string;
   phone?: string;
   address?: string;
-  commandes?: ICommande[];
+  utilisateur?: IUtilisateur;
 }
 
 export class Client implements IClient {
@@ -18,6 +18,6 @@ export class Client implements IClient {
     public mail?: string,
     public phone?: string,
     public address?: string,
-    public commandes?: ICommande[]
+    public utilisateur?: IUtilisateur
   ) {}
 }

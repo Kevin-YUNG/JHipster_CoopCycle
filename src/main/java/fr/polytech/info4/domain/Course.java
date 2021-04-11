@@ -9,8 +9,6 @@ import javax.validation.constraints.*;
 
 import java.io.Serializable;
 import java.time.LocalDate;
-import java.util.HashSet;
-import java.util.Set;
 
 /**
  * A Course.
@@ -32,29 +30,16 @@ public class Course implements Serializable {
     @Column(name = "prix", nullable = false)
     private Integer prix;
 
-    @NotNull
-    @Column(name = "distance", nullable = false)
+    @Column(name = "distance")
     private Float distance;
 
     @NotNull
     @Column(name = "date", nullable = false)
     private LocalDate date;
 
-    @OneToOne
-    @JoinColumn(unique = true)
-    private Coursier coursier;
-
-    @OneToMany(mappedBy = "course")
-    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    private Set<Commande> commandes = new HashSet<>();
-
     @ManyToOne
     @JsonIgnoreProperties(value = "courses", allowSetters = true)
     private Panier panier;
-
-    @ManyToOne
-    @JsonIgnoreProperties(value = "courses", allowSetters = true)
-    private Coursier coursier;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
     public Long getId() {
@@ -104,44 +89,6 @@ public class Course implements Serializable {
         this.date = date;
     }
 
-    public Coursier getCoursier() {
-        return coursier;
-    }
-
-    public Course coursier(Coursier coursier) {
-        this.coursier = coursier;
-        return this;
-    }
-
-    public void setCoursier(Coursier coursier) {
-        this.coursier = coursier;
-    }
-
-    public Set<Commande> getCommandes() {
-        return commandes;
-    }
-
-    public Course commandes(Set<Commande> commandes) {
-        this.commandes = commandes;
-        return this;
-    }
-
-    public Course addCommande(Commande commande) {
-        this.commandes.add(commande);
-        commande.setCourse(this);
-        return this;
-    }
-
-    public Course removeCommande(Commande commande) {
-        this.commandes.remove(commande);
-        commande.setCourse(null);
-        return this;
-    }
-
-    public void setCommandes(Set<Commande> commandes) {
-        this.commandes = commandes;
-    }
-
     public Panier getPanier() {
         return panier;
     }
@@ -153,19 +100,6 @@ public class Course implements Serializable {
 
     public void setPanier(Panier panier) {
         this.panier = panier;
-    }
-
-    public Coursier getCoursier() {
-        return coursier;
-    }
-
-    public Course coursier(Coursier coursier) {
-        this.coursier = coursier;
-        return this;
-    }
-
-    public void setCoursier(Coursier coursier) {
-        this.coursier = coursier;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 

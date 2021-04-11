@@ -20,11 +20,5 @@
                                  referencedColumnNames="id"
                                  referencedTableName="commerce"/>
         
-        <addForeignKeyConstraint baseColumnNames="commerce_id"
-                                 baseTableName="produit"
-                                 constraintName="fk_produit_commerce_id"
-                                 referencedColumnNames="id"
-                                 referencedTableName="commerce"/>
-
     </changeSet>
 </databaseChangeLog>

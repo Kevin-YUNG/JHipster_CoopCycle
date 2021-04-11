@@ -29,18 +29,18 @@ export class AutreCommerceUpdatePage {
   saveButton = element(by.id('save-entity'));
   cancelButton = element(by.id('cancel-save'));
 
-  nameInput = element(by.id('field_name'));
+  typeCommerceInput = element(by.id('field_typeCommerce'));
 
   async getPageTitle(): Promise<string> {
     return this.pageTitle.getAttribute('jhiTranslate');
   }
 
-  async setNameInput(name: string): Promise<void> {
-    await this.nameInput.sendKeys(name);
+  async setTypeCommerceInput(typeCommerce: string): Promise<void> {
+    await this.typeCommerceInput.sendKeys(typeCommerce);
   }
 
-  async getNameInput(): Promise<string> {
-    return await this.nameInput.getAttribute('value');
+  async getTypeCommerceInput(): Promise<string> {
+    return await this.typeCommerceInput.getAttribute('value');
   }
 
   async save(): Promise<void> {

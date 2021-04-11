@@ -27,6 +27,7 @@ public class Panier implements Serializable {
     private Long id;
 
     @NotNull
+    @Pattern(regexp = "^[A-Z][a-z]+\\d$")
     @Column(name = "name", nullable = false)
     private String name;
 

@@ -30,9 +30,12 @@ export class CommerceUpdatePage {
   cancelButton = element(by.id('cancel-save'));
 
   adresseInput = element(by.id('field_adresse'));
-  noteCommerceInput = element(by.id('field_noteCommerce'));
   nameInput = element(by.id('field_name'));
+  noteCommerceInput = element(by.id('field_noteCommerce'));
 
+  utilisateurSelect = element(by.id('field_utilisateur'));
+  restaurantSelect = element(by.id('field_restaurant'));
+  autreCommerceSelect = element(by.id('field_autreCommerce'));
   panierSelect = element(by.id('field_panier'));
 
   async getPageTitle(): Promise<string> {
@@ -47,6 +50,14 @@ export class CommerceUpdatePage {
     return await this.adresseInput.getAttribute('value');
   }
 
+  async setNameInput(name: string): Promise<void> {
+    await this.nameInput.sendKeys(name);
+  }
+
+  async getNameInput(): Promise<string> {
+    return await this.nameInput.getAttribute('value');
+  }
+
   async setNoteCommerceInput(noteCommerce: string): Promise<void> {
     await this.noteCommerceInput.sendKeys(noteCommerce);
   }
@@ -55,12 +66,52 @@ export class CommerceUpdatePage {
     return await this.noteCommerceInput.getAttribute('value');
   }
 
-  async setNameInput(name: string): Promise<void> {
-    await this.nameInput.sendKeys(name);
+  async utilisateurSelectLastOption(): Promise<void> {
+    await this.utilisateurSelect.all(by.tagName('option')).last().click();
   }
 
-  async getNameInput(): Promise<string> {
-    return await this.nameInput.getAttribute('value');
+  async utilisateurSelectOption(option: string): Promise<void> {
+    await this.utilisateurSelect.sendKeys(option);
+  }
+
+  getUtilisateurSelect(): ElementFinder {
+    return this.utilisateurSelect;
+  }
+
+  async getUtilisateurSelectedOption(): Promise<string> {
+    return await this.utilisateurSelect.element(by.css('option:checked')).getText();
+  }
+
+  async restaurantSelectLastOption(): Promise<void> {
+    await this.restaurantSelect.all(by.tagName('option')).last().click();
+  }
+
+  async restaurantSelectOption(option: string): Promise<void> {
+    await this.restaurantSelect.sendKeys(option);
+  }
+
+  getRestaurantSelect(): ElementFinder {
+    return this.restaurantSelect;
+  }
+
+  async getRestaurantSelectedOption(): Promise<string> {
+    return await this.restaurantSelect.element(by.css('option:checked')).getText();
+  }
+
+  async autreCommerceSelectLastOption(): Promise<void> {
+    await this.autreCommerceSelect.all(by.tagName('option')).last().click();
+  }
+
+  async autreCommerceSelectOption(option: string): Promise<void> {
+    await this.autreCommerceSelect.sendKeys(option);
+  }
+
+  getAutreCommerceSelect(): ElementFinder {
+    return this.autreCommerceSelect;
+  }
+
+  async getAutreCommerceSelectedOption(): Promise<string> {
+    return await this.autreCommerceSelect.element(by.css('option:checked')).getText();
   }
 
   async panierSelectLastOption(): Promise<void> {

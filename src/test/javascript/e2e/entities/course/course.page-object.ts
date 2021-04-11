@@ -33,9 +33,7 @@ export class CourseUpdatePage {
   distanceInput = element(by.id('field_distance'));
   dateInput = element(by.id('field_date'));
 
-  coursierSelect = element(by.id('field_coursier'));
   panierSelect = element(by.id('field_panier'));
-  coursierSelect = element(by.id('field_coursier'));
 
   async getPageTitle(): Promise<string> {
     return this.pageTitle.getAttribute('jhiTranslate');
@@ -65,22 +63,6 @@ export class CourseUpdatePage {
     return await this.dateInput.getAttribute('value');
   }
 
-  async coursierSelectLastOption(): Promise<void> {
-    await this.coursierSelect.all(by.tagName('option')).last().click();
-  }
-
-  async coursierSelectOption(option: string): Promise<void> {
-    await this.coursierSelect.sendKeys(option);
-  }
-
-  getCoursierSelect(): ElementFinder {
-    return this.coursierSelect;
-  }
-
-  async getCoursierSelectedOption(): Promise<string> {
-    return await this.coursierSelect.element(by.css('option:checked')).getText();
-  }
-
   async panierSelectLastOption(): Promise<void> {
     await this.panierSelect.all(by.tagName('option')).last().click();
   }
@@ -95,22 +77,6 @@ export class CourseUpdatePage {
 
   async getPanierSelectedOption(): Promise<string> {
     return await this.panierSelect.element(by.css('option:checked')).getText();
-  }
-
-  async coursierSelectLastOption(): Promise<void> {
-    await this.coursierSelect.all(by.tagName('option')).last().click();
-  }
-
-  async coursierSelectOption(option: string): Promise<void> {
-    await this.coursierSelect.sendKeys(option);
-  }
-
-  getCoursierSelect(): ElementFinder {
-    return this.coursierSelect;
-  }
-
-  async getCoursierSelectedOption(): Promise<string> {
-    return await this.coursierSelect.element(by.css('option:checked')).getText();
   }
 
   async save(): Promise<void> {

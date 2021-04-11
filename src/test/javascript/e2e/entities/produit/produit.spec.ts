@@ -41,14 +41,13 @@ describe('Produit e2e test', () => {
     await produitComponentsPage.clickOnCreateButton();
 
     await promise.all([
-      produitUpdatePage.setNameInput('name'),
+      produitUpdatePage.setNameInput('Zfy1'),
       produitUpdatePage.setPrixInput('5'),
       produitUpdatePage.setDescriptionInput('description'),
       // produitUpdatePage.commerceSelectLastOption(),
-      produitUpdatePage.commerceSelectLastOption(),
     ]);
 
-    expect(await produitUpdatePage.getNameInput()).to.eq('name', 'Expected Name value to be equals to name');
+    expect(await produitUpdatePage.getNameInput()).to.eq('Zfy1', 'Expected Name value to be equals to Zfy1');
     expect(await produitUpdatePage.getPrixInput()).to.eq('5', 'Expected prix value to be equals to 5');
     expect(await produitUpdatePage.getDescriptionInput()).to.eq('description', 'Expected Description value to be equals to description');
 

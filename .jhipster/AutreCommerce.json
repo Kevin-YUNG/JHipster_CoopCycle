@@ -2,14 +2,22 @@
   "name": "AutreCommerce",
   "fields": [
     {
-      "fieldName": "name",
+      "fieldName": "typeCommerce",
       "fieldType": "String",
       "fieldValidateRules": [
         "required"
       ]
     }
   ],
-  "relationships": [],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "commerce",
+      "otherEntityRelationshipName": "autreCommerce",
+      "relationshipName": "commerce",
+      "ownerSide": false
+    }
+  ],
   "changelogDate": "20210411185440",
   "entityTableName": "autre_commerce",
   "dto": "no",

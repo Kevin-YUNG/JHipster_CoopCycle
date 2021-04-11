@@ -12,32 +12,14 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="jHipsterApp.restaurant.name" for="field_name">Name</label>
-                    <input type="text" class="form-control" name="name" id="field_name"
-                           formControlName="name"/>
-                    <div *ngIf="editForm.get('name')!.invalid && (editForm.get('name')!.dirty || editForm.get('name')!.touched)">
-                        <small class="form-text text-danger"
-                               *ngIf="editForm.get('name')?.errors?.required" jhiTranslate="entity.validation.required">
-                        This field is required.
-                        </small>
-                    </div>
-                </div>
-
-                <div class="form-group">
                     <label class="form-control-label" jhiTranslate="jHipsterApp.restaurant.resto" for="field_resto">Resto</label>
                     <select class="form-control" name="resto" formControlName="resto" id="field_resto">
-                        <option value="Tacos">{{ 'jHipsterApp.TypeRestaurant.Tacos' | translate }}</option>
-                        <option value="Pizzeria">{{ 'jHipsterApp.TypeRestaurant.Pizzeria' | translate }}</option>
-                        <option value="Creperie">{{ 'jHipsterApp.TypeRestaurant.Creperie' | translate }}</option>
-                        <option value="Burger">{{ 'jHipsterApp.TypeRestaurant.Burger' | translate }}</option>
-                        <option value="Boulangerie">{{ 'jHipsterApp.TypeRestaurant.Boulangerie' | translate }}</option>
+                        <option value="TACOS">{{ 'jHipsterApp.TypeRestaurant.TACOS' | translate }}</option>
+                        <option value="PIZZERIA">{{ 'jHipsterApp.TypeRestaurant.PIZZERIA' | translate }}</option>
+                        <option value="CREPERIE">{{ 'jHipsterApp.TypeRestaurant.CREPERIE' | translate }}</option>
+                        <option value="BURGER">{{ 'jHipsterApp.TypeRestaurant.BURGER' | translate }}</option>
+                        <option value="BOULANGERIE">{{ 'jHipsterApp.TypeRestaurant.BOULANGERIE' | translate }}</option>
                     </select>
-                    <div *ngIf="editForm.get('resto')!.invalid && (editForm.get('resto')!.dirty || editForm.get('resto')!.touched)">
-                        <small class="form-text text-danger"
-                               *ngIf="editForm.get('resto')?.errors?.required" jhiTranslate="entity.validation.required">
-                        This field is required.
-                        </small>
-                    </div>
                 </div>
             </div>
 

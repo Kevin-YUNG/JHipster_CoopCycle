@@ -32,26 +32,25 @@ public class Commerce implements Serializable {
     private String adresse;
 
     @NotNull
-    @Min(value = 0)
-    @Max(value = 5)
-    @Column(name = "note_commerce", nullable = false)
-    private Integer noteCommerce;
-
-    @NotNull
     @Column(name = "name", nullable = false)
     private String name;
 
-    @OneToMany(mappedBy = "commerce")
-    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    private Set<Utilisateur> utilisateurs = new HashSet<>();
+    @Min(value = 0)
+    @Max(value = 5)
+    @Column(name = "note_commerce")
+    private Integer noteCommerce;
 
-    @OneToMany(mappedBy = "commerce")
-    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    private Set<Produit> produits = new HashSet<>();
+    @OneToOne
+    @JoinColumn(unique = true)
+    private Utilisateur utilisateur;
 
-    @OneToMany(mappedBy = "commerce")
-    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    private Set<Commande> commandes = new HashSet<>();
+    @OneToOne
+    @JoinColumn(unique = true)
+    private Restaurant restaurant;
+
+    @OneToOne
+    @JoinColumn(unique = true)
+    private AutreCommerce autreCommerce;
 
     @ManyToOne
     @JsonIgnoreProperties(value = "commerce", allowSetters = true)
@@ -84,19 +83,6 @@ public class Commerce implements Serializable {
         this.adresse = adresse;
     }
 
-    public Integer getNoteCommerce() {
-        return noteCommerce;
-    }
-
-    public Commerce noteCommerce(Integer noteCommerce) {
-        this.noteCommerce = noteCommerce;
-        return this;
-    }
-
-    public void setNoteCommerce(Integer noteCommerce) {
-        this.noteCommerce = noteCommerce;
-    }
-
     public String getName() {
         return name;
     }
@@ -110,79 +96,56 @@ public class Commerce implements Serializable {
         this.name = name;
     }
 
-    public Set<Utilisateur> getUtilisateurs() {
-        return utilisateurs;
+    public Integer getNoteCommerce() {
+        return noteCommerce;
     }
 
-    public Commerce utilisateurs(Set<Utilisateur> utilisateurs) {
-        this.utilisateurs = utilisateurs;
+    public Commerce noteCommerce(Integer noteCommerce) {
+        this.noteCommerce = noteCommerce;
         return this;
     }
 
-    public Commerce addUtilisateur(Utilisateur utilisateur) {
-        this.utilisateurs.add(utilisateur);
-        utilisateur.setCommerce(this);
+    public void setNoteCommerce(Integer noteCommerce) {
+        this.noteCommerce = noteCommerce;
+    }
+
+    public Utilisateur getUtilisateur() {
+        return utilisateur;
+    }
+
+    public Commerce utilisateur(Utilisateur utilisateur) {
+        this.utilisateur = utilisateur;
         return this;
     }
 
-    public Commerce removeUtilisateur(Utilisateur utilisateur) {
-        this.utilisateurs.remove(utilisateur);
-        utilisateur.setCommerce(null);
+    public void setUtilisateur(Utilisateur utilisateur) {
+        this.utilisateur = utilisateur;
+    }
+
+    public Restaurant getRestaurant() {
+        return restaurant;
+    }
+
+    public Commerce restaurant(Restaurant restaurant) {
+        this.restaurant = restaurant;
         return this;
     }
 
-    public void setUtilisateurs(Set<Utilisateur> utilisateurs) {
-        this.utilisateurs = utilisateurs;
+    public void setRestaurant(Restaurant restaurant) {
+        this.restaurant = restaurant;
     }
 
-    public Set<Produit> getProduits() {
-        return produits;
+    public AutreCommerce getAutreCommerce() {
+        return autreCommerce;
     }
 
-    public Commerce produits(Set<Produit> produits) {
-        this.produits = produits;
+    public Commerce autreCommerce(AutreCommerce autreCommerce) {
+        this.autreCommerce = autreCommerce;
         return this;
     }
 
-    public Commerce addProduit(Produit produit) {
-        this.produits.add(produit);
-        produit.setCommerce(this);
-        return this;
-    }
-
-    public Commerce removeProduit(Produit produit) {
-        this.produits.remove(produit);
-        produit.setCommerce(null);
-        return this;
-    }
-
-    public void setProduits(Set<Produit> produits) {
-        this.produits = produits;
-    }
-
-    public Set<Commande> getCommandes() {
-        return commandes;
-    }
-
-    public Commerce commandes(Set<Commande> commandes) {
-        this.commandes = commandes;
-        return this;
-    }
-
-    public Commerce addCommande(Commande commande) {
-        this.commandes.add(commande);
-        commande.setCommerce(this);
-        return this;
-    }
-
-    public Commerce removeCommande(Commande commande) {
-        this.commandes.remove(commande);
-        commande.setCommerce(null);
-        return this;
-    }
-
-    public void setCommandes(Set<Commande> commandes) {
-        this.commandes = commandes;
+    public void setAutreCommerce(AutreCommerce autreCommerce) {
+        this.autreCommerce = autreCommerce;
     }
 
     public Panier getPanier() {
@@ -246,8 +209,8 @@ public class Commerce implements Serializable {
         return "Commerce{" +
             "id=" + getId() +
             ", adresse='" + getAdresse() + "'" +
-            ", noteCommerce=" + getNoteCommerce() +
             ", name='" + getName() + "'" +
+            ", noteCommerce=" + getNoteCommerce() +
             "}";
     }
 }

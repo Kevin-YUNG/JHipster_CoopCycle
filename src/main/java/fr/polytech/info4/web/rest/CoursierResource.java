@@ -90,11 +90,11 @@ public class CoursierResource {
      */
     @GetMapping("/coursiers")
     public List<Coursier> getAllCoursiers(@RequestParam(required = false) String filter) {
-        if ("course-is-null".equals(filter)) {
-            log.debug("REST request to get all Coursiers where course is null");
+        if ("utilisateur-is-null".equals(filter)) {
+            log.debug("REST request to get all Coursiers where utilisateur is null");
             return StreamSupport
                 .stream(coursierRepository.findAll().spliterator(), false)
-                .filter(coursier -> coursier.getCourse() == null)
+                .filter(coursier -> coursier.getUtilisateur() == null)
                 .collect(Collectors.toList());
         }
         log.debug("REST request to get all Coursiers");

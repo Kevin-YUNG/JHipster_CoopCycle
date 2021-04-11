@@ -34,7 +34,6 @@ export class ProduitUpdatePage {
   descriptionInput = element(by.id('field_description'));
 
   commerceSelect = element(by.id('field_commerce'));
-  commerceSelect = element(by.id('field_commerce'));
 
   async getPageTitle(): Promise<string> {
     return this.pageTitle.getAttribute('jhiTranslate');
@@ -62,22 +61,6 @@ export class ProduitUpdatePage {
 
   async getDescriptionInput(): Promise<string> {
     return await this.descriptionInput.getAttribute('value');
-  }
-
-  async commerceSelectLastOption(): Promise<void> {
-    await this.commerceSelect.all(by.tagName('option')).last().click();
-  }
-
-  async commerceSelectOption(option: string): Promise<void> {
-    await this.commerceSelect.sendKeys(option);
-  }
-
-  getCommerceSelect(): ElementFinder {
-    return this.commerceSelect;
-  }
-
-  async getCommerceSelectedOption(): Promise<string> {
-    return await this.commerceSelect.element(by.css('option:checked')).getText();
   }
 
   async commerceSelectLastOption(): Promise<void> {

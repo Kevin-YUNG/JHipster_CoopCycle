@@ -16,7 +16,8 @@
       "detail": {
         "title": "Autre Commerce"
       },
-      "name": "Name"
+      "typeCommerce": "Type Commerce",
+      "commerce": "Commerce"
     }
   }
 }

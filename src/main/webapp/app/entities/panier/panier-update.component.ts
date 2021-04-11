@@ -25,7 +25,7 @@ export class PanierUpdateComponent implements OnInit {
 
   editForm = this.fb.group({
     id: [],
-    name: [null, [Validators.required]],
+    name: [null, [Validators.required, Validators.pattern('^[A-Z][a-z]+\\d$')]],
     prix: [null, [Validators.required, Validators.min(0)]],
     produits: [],
     utilisateur: [],

@@ -27,8 +27,14 @@
             <column name="tel" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
-            <column name="commerce_id" type="bigint">
-                <constraints nullable="true" />
+            <column name="client_id" type="bigint">
+                <constraints unique="true" nullable="true" uniqueConstraintName="ux_utilisateur_client_id" />
+            </column>
+            <column name="commercant_id" type="bigint">
+                <constraints unique="true" nullable="true" uniqueConstraintName="ux_utilisateur_commercant_id" />
+            </column>
+            <column name="coursier_id" type="bigint">
+                <constraints unique="true" nullable="true" uniqueConstraintName="ux_utilisateur_coursier_id" />
             </column>
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->
         </createTable>

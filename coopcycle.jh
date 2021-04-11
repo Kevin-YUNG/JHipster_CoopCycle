@@ -1,7 +1,7 @@
 entity Client {
     id Integer required
     firstname String required
-    lastname String required
+    lastname String required 
     mail String required
     phone String required
     address String required
@@ -22,69 +22,63 @@ entity Commercant {
 
 entity Utilisateur {
     id Integer required
-    name String required
-    Firstname String required
+    name String required pattern(/^[A-Z][a-z]+\d$/)
+    firstname String required pattern(/^[A-Z][a-z]+\d$/)
     mail String required
     tel String required
 }
 
 entity Panier {
-    name String required
+    name String required pattern(/^[A-Z][a-z]+\d$/)
     prix Integer required min(0)
 }
 
 entity Course {
     prix Integer required min(0)
-    distance Float required
+    distance Float
     date LocalDate required
 }
 
 entity Produit {
-    name String required
+    name String required pattern(/^[A-Z][a-z]+\d$/)
     prix Integer required min(0)
     description String required
 }
 
-entity Commande {
-    date LocalDate required
-    prix Float required min(0)
-}
-
 entity Commerce {
     adresse String required
-    noteCommerce Integer required min(0) max(5)
     name String required
+    noteCommerce Integer min(0) max(5)
 }
 
 entity Restaurant {
-    name String required
-    resto TypeRestaurant required
+    resto TypeRestaurant
 }
 
 enum TypeRestaurant {
-    Tacos, Pizzeria, Creperie, Burger, Boulangerie
+    TACOS, PIZZERIA, CREPERIE, BURGER, BOULANGERIE
+}
+
+entity AutreCommerce{
+    typeCommerce String required
 }
 
 relationship OneToMany {
     Utilisateur to Panier
-    Commerce to Utilisateur
     Panier to Commerce
     Panier to Course
-    Client to Commande
-    Coursier to Course
-    Commerce to Produit
-    Course to Commande
-    Commerce to Commande
-    Produit to Commande
 }
 
+relationship OneToOne {
+    Utilisateur to Client
+    Utilisateur to Commercant
+    Utilisateur to Coursier
+    Commerce to Utilisateur
+    Commerce to Restaurant
+    Commerce to AutreCommerce
+}
 
 relationship ManyToMany {
     Produit to Commerce
     Panier to Produit
-}
-
-
-relationship OneToOne {
-    Course to Coursier
 }

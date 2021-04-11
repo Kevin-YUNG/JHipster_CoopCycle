@@ -24,14 +24,22 @@
                 </div>
 
                 <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jHipsterApp.commerce.name" for="field_name">Name</label>
+                    <input type="text" class="form-control" name="name" id="field_name"
+                           formControlName="name"/>
+                    <div *ngIf="editForm.get('name')!.invalid && (editForm.get('name')!.dirty || editForm.get('name')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('name')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
                     <label class="form-control-label" jhiTranslate="jHipsterApp.commerce.noteCommerce" for="field_noteCommerce">Note Commerce</label>
                     <input type="number" class="form-control" name="noteCommerce" id="field_noteCommerce"
                            formControlName="noteCommerce"/>
                     <div *ngIf="editForm.get('noteCommerce')!.invalid && (editForm.get('noteCommerce')!.dirty || editForm.get('noteCommerce')!.touched)">
-                        <small class="form-text text-danger"
-                               *ngIf="editForm.get('noteCommerce')?.errors?.required" jhiTranslate="entity.validation.required">
-                        This field is required.
-                        </small>
                         <small class="form-text text-danger"
                                *ngIf="editForm.get('noteCommerce')?.errors?.min" jhiTranslate="entity.validation.min" [translateValues]="{ min: 0 }">
                             This field should be at least 0.
@@ -48,15 +56,27 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="jHipsterApp.commerce.name" for="field_name">Name</label>
-                    <input type="text" class="form-control" name="name" id="field_name"
-                           formControlName="name"/>
-                    <div *ngIf="editForm.get('name')!.invalid && (editForm.get('name')!.dirty || editForm.get('name')!.touched)">
-                        <small class="form-text text-danger"
-                               *ngIf="editForm.get('name')?.errors?.required" jhiTranslate="entity.validation.required">
-                        This field is required.
-                        </small>
-                    </div>
+                    <label class="form-control-label" jhiTranslate="jHipsterApp.commerce.utilisateur" for="field_utilisateur">Utilisateur</label>
+                    <select class="form-control" id="field_utilisateur" name="utilisateur" formControlName="utilisateur">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="utilisateurOption.id === editForm.get('utilisateur')!.value?.id ? editForm.get('utilisateur')!.value : utilisateurOption" *ngFor="let utilisateurOption of utilisateurs; trackBy: trackById">{{ utilisateurOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jHipsterApp.commerce.restaurant" for="field_restaurant">Restaurant</label>
+                    <select class="form-control" id="field_restaurant" name="restaurant" formControlName="restaurant">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="restaurantOption.id === editForm.get('restaurant')!.value?.id ? editForm.get('restaurant')!.value : restaurantOption" *ngFor="let restaurantOption of restaurants; trackBy: trackById">{{ restaurantOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jHipsterApp.commerce.autreCommerce" for="field_autreCommerce">Autre Commerce</label>
+                    <select class="form-control" id="field_autreCommerce" name="autreCommerce" formControlName="autreCommerce">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="autreCommerceOption.id === editForm.get('autreCommerce')!.value?.id ? editForm.get('autreCommerce')!.value : autreCommerceOption" *ngFor="let autreCommerceOption of autrecommerces; trackBy: trackById">{{ autreCommerceOption.id }}</option>
+                    </select>
                 </div>
 
                 <div class="form-group">

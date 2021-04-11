@@ -12,13 +12,31 @@
                 <dd>
                     <span>{{ commerce.adresse }}</span>
                 </dd>
+                <dt><span jhiTranslate="jHipsterApp.commerce.name">Name</span></dt>
+                <dd>
+                    <span>{{ commerce.name }}</span>
+                </dd>
                 <dt><span jhiTranslate="jHipsterApp.commerce.noteCommerce">Note Commerce</span></dt>
                 <dd>
                     <span>{{ commerce.noteCommerce }}</span>
                 </dd>
-                <dt><span jhiTranslate="jHipsterApp.commerce.name">Name</span></dt>
+                <dt><span jhiTranslate="jHipsterApp.commerce.utilisateur">Utilisateur</span></dt>
                 <dd>
-                    <span>{{ commerce.name }}</span>
+                    <div *ngIf="commerce.utilisateur">
+                        <a [routerLink]="['/utilisateur', commerce.utilisateur?.id, 'view']">{{ commerce.utilisateur?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="jHipsterApp.commerce.restaurant">Restaurant</span></dt>
+                <dd>
+                    <div *ngIf="commerce.restaurant">
+                        <a [routerLink]="['/restaurant', commerce.restaurant?.id, 'view']">{{ commerce.restaurant?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="jHipsterApp.commerce.autreCommerce">Autre Commerce</span></dt>
+                <dd>
+                    <div *ngIf="commerce.autreCommerce">
+                        <a [routerLink]="['/autre-commerce', commerce.autreCommerce?.id, 'view']">{{ commerce.autreCommerce?.id }}</a>
+                    </div>
                 </dd>
                 <dt><span jhiTranslate="jHipsterApp.commerce.panier">Panier</span></dt>
                 <dd>

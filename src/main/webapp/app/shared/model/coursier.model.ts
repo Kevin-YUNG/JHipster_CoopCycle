@@ -1,4 +1,4 @@
-import { ICourse } from 'app/shared/model/course.model';
+import { IUtilisateur } from 'app/shared/model/utilisateur.model';
 
 export interface ICoursier {
   id?: number;
@@ -7,8 +7,7 @@ export interface ICoursier {
   mail?: string;
   phone?: string;
   reviews?: number;
-  courses?: ICourse[];
-  course?: ICourse;
+  utilisateur?: IUtilisateur;
 }
 
 export class Coursier implements ICoursier {
@@ -19,7 +18,6 @@ export class Coursier implements ICoursier {
     public mail?: string,
     public phone?: string,
     public reviews?: number,
-    public courses?: ICourse[],
-    public course?: ICourse
+    public utilisateur?: IUtilisateur
   ) {}
 }

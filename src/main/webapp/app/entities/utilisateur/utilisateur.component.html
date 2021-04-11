@@ -27,7 +27,9 @@
                     <th scope="col" ><span jhiTranslate="jHipsterApp.utilisateur.firstname">Firstname</span></th>
                     <th scope="col" ><span jhiTranslate="jHipsterApp.utilisateur.mail">Mail</span></th>
                     <th scope="col" ><span jhiTranslate="jHipsterApp.utilisateur.tel">Tel</span></th>
-                    <th scope="col" ><span jhiTranslate="jHipsterApp.utilisateur.commerce">Commerce</span></th>
+                    <th scope="col" ><span jhiTranslate="jHipsterApp.utilisateur.client">Client</span></th>
+                    <th scope="col" ><span jhiTranslate="jHipsterApp.utilisateur.commercant">Commercant</span></th>
+                    <th scope="col" ><span jhiTranslate="jHipsterApp.utilisateur.coursier">Coursier</span></th>
                     <th scope="col"></th>
                 </tr>
             </thead>
@@ -39,8 +41,18 @@
                     <td>{{ utilisateur.mail }}</td>
                     <td>{{ utilisateur.tel }}</td>
                     <td>
-                        <div *ngIf="utilisateur.commerce">
-                            <a [routerLink]="['/commerce', utilisateur.commerce?.id, 'view']" >{{ utilisateur.commerce?.id }}</a>
+                        <div *ngIf="utilisateur.client">
+                            <a [routerLink]="['/client', utilisateur.client?.id, 'view']" >{{ utilisateur.client?.id }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="utilisateur.commercant">
+                            <a [routerLink]="['/commercant', utilisateur.commercant?.id, 'view']" >{{ utilisateur.commercant?.id }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="utilisateur.coursier">
+                            <a [routerLink]="['/coursier', utilisateur.coursier?.id, 'view']" >{{ utilisateur.coursier?.id }}</a>
                         </div>
                     </td>
                     <td class="text-right">

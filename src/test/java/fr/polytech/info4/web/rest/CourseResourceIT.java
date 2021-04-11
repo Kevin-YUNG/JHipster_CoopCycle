@@ -143,25 +143,6 @@ public class CourseResourceIT {
 
     @Test
     @Transactional
-    public void checkDistanceIsRequired() throws Exception {
-        int databaseSizeBeforeTest = courseRepository.findAll().size();
-        // set the field null
-        course.setDistance(null);
-
-        // Create the Course, which fails.
-
-
-        restCourseMockMvc.perform(post("/api/courses")
-            .contentType(MediaType.APPLICATION_JSON)
-            .content(TestUtil.convertObjectToJsonBytes(course)))
-            .andExpect(status().isBadRequest());
-
-        List<Course> courseList = courseRepository.findAll();
-        assertThat(courseList).hasSize(databaseSizeBeforeTest);
-    }
-
-    @Test
-    @Transactional
     public void checkDateIsRequired() throws Exception {
         int databaseSizeBeforeTest = courseRepository.findAll().size();
         // set the field null

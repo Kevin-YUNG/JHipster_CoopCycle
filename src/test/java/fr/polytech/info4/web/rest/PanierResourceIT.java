@@ -37,8 +37,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @WithMockUser
 public class PanierResourceIT {
 
-    private static final String DEFAULT_NAME = "AAAAAAAAAA";
-    private static final String UPDATED_NAME = "BBBBBBBBBB";
+    private static final String DEFAULT_NAME = "Avoxjqr7";
+    private static final String UPDATED_NAME = "Izgl0";
 
     private static final Integer DEFAULT_PRIX = 0;
     private static final Integer UPDATED_PRIX = 1;

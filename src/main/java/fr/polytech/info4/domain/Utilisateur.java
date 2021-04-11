@@ -1,6 +1,6 @@
 package fr.polytech.info4.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
@@ -27,10 +27,12 @@ public class Utilisateur implements Serializable {
     private Long id;
 
     @NotNull
+    @Pattern(regexp = "^[A-Z][a-z]+\\d$")
     @Column(name = "name", nullable = false)
     private String name;
 
     @NotNull
+    @Pattern(regexp = "^[A-Z][a-z]+\\d$")
     @Column(name = "firstname", nullable = false)
     private String firstname;
 
@@ -42,12 +44,24 @@ public class Utilisateur implements Serializable {
     @Column(name = "tel", nullable = false)
     private String tel;
 
+    @OneToOne
+    @JoinColumn(unique = true)
+    private Client client;
+
+    @OneToOne
+    @JoinColumn(unique = true)
+    private Commercant commercant;
+
+    @OneToOne
+    @JoinColumn(unique = true)
+    private Coursier coursier;
+
     @OneToMany(mappedBy = "utilisateur")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
     private Set<Panier> paniers = new HashSet<>();
 
-    @ManyToOne
-    @JsonIgnoreProperties(value = "utilisateurs", allowSetters = true)
+    @OneToOne(mappedBy = "utilisateur")
+    @JsonIgnore
     private Commerce commerce;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
@@ -109,6 +123,45 @@ public class Utilisateur implements Serializable {
 
     public void setTel(String tel) {
         this.tel = tel;
+    }
+
+    public Client getClient() {
+        return client;
+    }
+
+    public Utilisateur client(Client client) {
+        this.client = client;
+        return this;
+    }
+
+    public void setClient(Client client) {
+        this.client = client;
+    }
+
+    public Commercant getCommercant() {
+        return commercant;
+    }
+
+    public Utilisateur commercant(Commercant commercant) {
+        this.commercant = commercant;
+        return this;
+    }
+
+    public void setCommercant(Commercant commercant) {
+        this.commercant = commercant;
+    }
+
+    public Coursier getCoursier() {
+        return coursier;
+    }
+
+    public Utilisateur coursier(Coursier coursier) {
+        this.coursier = coursier;
+        return this;
+    }
+
+    public void setCoursier(Coursier coursier) {
+        this.coursier = coursier;
     }
 
     public Set<Panier> getPaniers() {

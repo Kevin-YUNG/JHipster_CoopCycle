@@ -41,13 +41,13 @@ describe('Panier e2e test', () => {
     await panierComponentsPage.clickOnCreateButton();
 
     await promise.all([
-      panierUpdatePage.setNameInput('name'),
+      panierUpdatePage.setNameInput('Lgcdkv7'),
       panierUpdatePage.setPrixInput('5'),
       // panierUpdatePage.produitSelectLastOption(),
       panierUpdatePage.utilisateurSelectLastOption(),
     ]);
 
-    expect(await panierUpdatePage.getNameInput()).to.eq('name', 'Expected Name value to be equals to name');
+    expect(await panierUpdatePage.getNameInput()).to.eq('Lgcdkv7', 'Expected Name value to be equals to Lgcdkv7');
     expect(await panierUpdatePage.getPrixInput()).to.eq('5', 'Expected prix value to be equals to 5');
 
     await panierUpdatePage.save();

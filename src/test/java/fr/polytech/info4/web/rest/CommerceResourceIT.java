@@ -32,11 +32,11 @@ public class CommerceResourceIT {
     private static final String DEFAULT_ADRESSE = "AAAAAAAAAA";
     private static final String UPDATED_ADRESSE = "BBBBBBBBBB";
 
-    private static final Integer DEFAULT_NOTE_COMMERCE = 0;
-    private static final Integer UPDATED_NOTE_COMMERCE = 1;
-
     private static final String DEFAULT_NAME = "AAAAAAAAAA";
     private static final String UPDATED_NAME = "BBBBBBBBBB";
+
+    private static final Integer DEFAULT_NOTE_COMMERCE = 0;
+    private static final Integer UPDATED_NOTE_COMMERCE = 1;
 
     @Autowired
     private CommerceRepository commerceRepository;
@@ -58,8 +58,8 @@ public class CommerceResourceIT {
     public static Commerce createEntity(EntityManager em) {
         Commerce commerce = new Commerce()
             .adresse(DEFAULT_ADRESSE)
-            .noteCommerce(DEFAULT_NOTE_COMMERCE)
-            .name(DEFAULT_NAME);
+            .name(DEFAULT_NAME)
+            .noteCommerce(DEFAULT_NOTE_COMMERCE);
         return commerce;
     }
     /**
@@ -71,8 +71,8 @@ public class CommerceResourceIT {
     public static Commerce createUpdatedEntity(EntityManager em) {
         Commerce commerce = new Commerce()
             .adresse(UPDATED_ADRESSE)
-            .noteCommerce(UPDATED_NOTE_COMMERCE)
-            .name(UPDATED_NAME);
+            .name(UPDATED_NAME)
+            .noteCommerce(UPDATED_NOTE_COMMERCE);
         return commerce;
     }
 
@@ -96,8 +96,8 @@ public class CommerceResourceIT {
         assertThat(commerceList).hasSize(databaseSizeBeforeCreate + 1);
         Commerce testCommerce = commerceList.get(commerceList.size() - 1);
         assertThat(testCommerce.getAdresse()).isEqualTo(DEFAULT_ADRESSE);
-        assertThat(testCommerce.getNoteCommerce()).isEqualTo(DEFAULT_NOTE_COMMERCE);
         assertThat(testCommerce.getName()).isEqualTo(DEFAULT_NAME);
+        assertThat(testCommerce.getNoteCommerce()).isEqualTo(DEFAULT_NOTE_COMMERCE);
     }
 
     @Test
@@ -126,25 +126,6 @@ public class CommerceResourceIT {
         int databaseSizeBeforeTest = commerceRepository.findAll().size();
         // set the field null
         commerce.setAdresse(null);
-
-        // Create the Commerce, which fails.
-
-
-        restCommerceMockMvc.perform(post("/api/commerce")
-            .contentType(MediaType.APPLICATION_JSON)
-            .content(TestUtil.convertObjectToJsonBytes(commerce)))
-            .andExpect(status().isBadRequest());
-
-        List<Commerce> commerceList = commerceRepository.findAll();
-        assertThat(commerceList).hasSize(databaseSizeBeforeTest);
-    }
-
-    @Test
-    @Transactional
-    public void checkNoteCommerceIsRequired() throws Exception {
-        int databaseSizeBeforeTest = commerceRepository.findAll().size();
-        // set the field null
-        commerce.setNoteCommerce(null);
 
         // Create the Commerce, which fails.
 
@@ -189,8 +170,8 @@ public class CommerceResourceIT {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(commerce.getId().intValue())))
             .andExpect(jsonPath("$.[*].adresse").value(hasItem(DEFAULT_ADRESSE)))
-            .andExpect(jsonPath("$.[*].noteCommerce").value(hasItem(DEFAULT_NOTE_COMMERCE)))
-            .andExpect(jsonPath("$.[*].name").value(hasItem(DEFAULT_NAME)));
+            .andExpect(jsonPath("$.[*].name").value(hasItem(DEFAULT_NAME)))
+            .andExpect(jsonPath("$.[*].noteCommerce").value(hasItem(DEFAULT_NOTE_COMMERCE)));
     }
     
     @Test
@@ -205,8 +186,8 @@ public class CommerceResourceIT {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.id").value(commerce.getId().intValue()))
             .andExpect(jsonPath("$.adresse").value(DEFAULT_ADRESSE))
-            .andExpect(jsonPath("$.noteCommerce").value(DEFAULT_NOTE_COMMERCE))
-            .andExpect(jsonPath("$.name").value(DEFAULT_NAME));
+            .andExpect(jsonPath("$.name").value(DEFAULT_NAME))
+            .andExpect(jsonPath("$.noteCommerce").value(DEFAULT_NOTE_COMMERCE));
     }
     @Test
     @Transactional
@@ -230,8 +211,8 @@ public class CommerceResourceIT {
         em.detach(updatedCommerce);
         updatedCommerce
             .adresse(UPDATED_ADRESSE)
-            .noteCommerce(UPDATED_NOTE_COMMERCE)
-            .name(UPDATED_NAME);
+            .name(UPDATED_NAME)
+            .noteCommerce(UPDATED_NOTE_COMMERCE);
 
         restCommerceMockMvc.perform(put("/api/commerce")
             .contentType(MediaType.APPLICATION_JSON)
@@ -243,8 +224,8 @@ public class CommerceResourceIT {
         assertThat(commerceList).hasSize(databaseSizeBeforeUpdate);
         Commerce testCommerce = commerceList.get(commerceList.size() - 1);
         assertThat(testCommerce.getAdresse()).isEqualTo(UPDATED_ADRESSE);
-        assertThat(testCommerce.getNoteCommerce()).isEqualTo(UPDATED_NOTE_COMMERCE);
         assertThat(testCommerce.getName()).isEqualTo(UPDATED_NAME);
+        assertThat(testCommerce.getNoteCommerce()).isEqualTo(UPDATED_NOTE_COMMERCE);
     }
 
     @Test

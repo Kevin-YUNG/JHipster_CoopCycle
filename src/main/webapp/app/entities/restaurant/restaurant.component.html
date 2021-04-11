@@ -23,7 +23,6 @@
             <thead>
                 <tr>
                     <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
-                    <th scope="col" ><span jhiTranslate="jHipsterApp.restaurant.name">Name</span></th>
                     <th scope="col" ><span jhiTranslate="jHipsterApp.restaurant.resto">Resto</span></th>
                     <th scope="col"></th>
                 </tr>
@@ -31,7 +30,6 @@
             <tbody>
                 <tr *ngFor="let restaurant of restaurants ;trackBy: trackId">
                     <td><a [routerLink]="['/restaurant', restaurant.id, 'view']">{{ restaurant.id }}</a></td>
-                    <td>{{ restaurant.name }}</td>
                     <td jhiTranslate="{{ 'jHipsterApp.TypeRestaurant.' + restaurant.resto }}">{{ restaurant.resto }}</td>
                     <td class="text-right">
                         <div class="btn-group">

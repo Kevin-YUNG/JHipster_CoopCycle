@@ -21,7 +21,7 @@
       "mail": "Mail",
       "phone": "Phone",
       "address": "Address",
-      "commande": "Commande"
+      "utilisateur": "Utilisateur"
     }
   }
 }

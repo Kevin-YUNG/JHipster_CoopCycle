@@ -1,10 +1,10 @@
 package fr.polytech.info4.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import javax.persistence.*;
-import javax.validation.constraints.*;
 
 import java.io.Serializable;
 
@@ -25,14 +25,13 @@ public class Restaurant implements Serializable {
     @SequenceGenerator(name = "sequenceGenerator")
     private Long id;
 
-    @NotNull
-    @Column(name = "name", nullable = false)
-    private String name;
-
-    @NotNull
     @Enumerated(EnumType.STRING)
-    @Column(name = "resto", nullable = false)
+    @Column(name = "resto")
     private TypeRestaurant resto;
+
+    @OneToOne(mappedBy = "restaurant")
+    @JsonIgnore
+    private Commerce commerce;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
     public Long getId() {
@@ -41,19 +40,6 @@ public class Restaurant implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public Restaurant name(String name) {
-        this.name = name;
-        return this;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public TypeRestaurant getResto() {
@@ -67,6 +53,19 @@ public class Restaurant implements Serializable {
 
     public void setResto(TypeRestaurant resto) {
         this.resto = resto;
+    }
+
+    public Commerce getCommerce() {
+        return commerce;
+    }
+
+    public Restaurant commerce(Commerce commerce) {
+        this.commerce = commerce;
+        return this;
+    }
+
+    public void setCommerce(Commerce commerce) {
+        this.commerce = commerce;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 
@@ -91,7 +90,6 @@ public class Restaurant implements Serializable {
     public String toString() {
         return "Restaurant{" +
             "id=" + getId() +
-            ", name='" + getName() + "'" +
             ", resto='" + getResto() + "'" +
             "}";
     }

@@ -17,8 +17,7 @@ export class RestaurantUpdateComponent implements OnInit {
 
   editForm = this.fb.group({
     id: [],
-    name: [null, [Validators.required]],
-    resto: [null, [Validators.required]],
+    resto: [],
   });
 
   constructor(protected restaurantService: RestaurantService, protected activatedRoute: ActivatedRoute, private fb: FormBuilder) {}
@@ -32,7 +31,6 @@ export class RestaurantUpdateComponent implements OnInit {
   updateForm(restaurant: IRestaurant): void {
     this.editForm.patchValue({
       id: restaurant.id,
-      name: restaurant.name,
       resto: restaurant.resto,
     });
   }
@@ -55,7 +53,6 @@ export class RestaurantUpdateComponent implements OnInit {
     return {
       ...new Restaurant(),
       id: this.editForm.get(['id'])!.value,
-      name: this.editForm.get(['name'])!.value,
       resto: this.editForm.get(['resto'])!.value,
     };
   }

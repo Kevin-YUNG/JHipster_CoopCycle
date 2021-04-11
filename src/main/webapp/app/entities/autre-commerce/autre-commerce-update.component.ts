@@ -17,7 +17,7 @@ export class AutreCommerceUpdateComponent implements OnInit {
 
   editForm = this.fb.group({
     id: [],
-    name: [null, [Validators.required]],
+    typeCommerce: [null, [Validators.required]],
   });
 
   constructor(protected autreCommerceService: AutreCommerceService, protected activatedRoute: ActivatedRoute, private fb: FormBuilder) {}
@@ -31,7 +31,7 @@ export class AutreCommerceUpdateComponent implements OnInit {
   updateForm(autreCommerce: IAutreCommerce): void {
     this.editForm.patchValue({
       id: autreCommerce.id,
-      name: autreCommerce.name,
+      typeCommerce: autreCommerce.typeCommerce,
     });
   }
 
@@ -53,7 +53,7 @@ export class AutreCommerceUpdateComponent implements OnInit {
     return {
       ...new AutreCommerce(),
       id: this.editForm.get(['id'])!.value,
-      name: this.editForm.get(['name'])!.value,
+      typeCommerce: this.editForm.get(['typeCommerce'])!.value,
     };
   }
 

@@ -15,11 +15,8 @@
             <column name="id" type="bigint">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="name" type="varchar(255)">
-                <constraints nullable="false" />
-            </column>
             <column name="resto" type="varchar(255)">
-                <constraints nullable="false" />
+                <constraints nullable="true" />
             </column>
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->
         </createTable>
@@ -44,7 +41,6 @@
                   separator=";"
                   tableName="restaurant">
             <column name="id" type="numeric"/>
-            <column name="name" type="string"/>
             <column name="resto" type="string"/>
             <!-- jhipster-needle-liquibase-add-loadcolumn - JHipster (and/or extensions) can add load columns here -->
         </loadData>

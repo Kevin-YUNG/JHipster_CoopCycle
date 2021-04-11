@@ -16,7 +16,8 @@
       "detail": {
         "title": "Commercant"
       },
-      "adresse": "Adresse"
+      "adresse": "Adresse",
+      "utilisateur": "Utilisateur"
     }
   }
 }

@@ -24,8 +24,11 @@
                 <tr>
                     <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
                     <th scope="col" ><span jhiTranslate="jHipsterApp.commerce.adresse">Adresse</span></th>
-                    <th scope="col" ><span jhiTranslate="jHipsterApp.commerce.noteCommerce">Note Commerce</span></th>
                     <th scope="col" ><span jhiTranslate="jHipsterApp.commerce.name">Name</span></th>
+                    <th scope="col" ><span jhiTranslate="jHipsterApp.commerce.noteCommerce">Note Commerce</span></th>
+                    <th scope="col" ><span jhiTranslate="jHipsterApp.commerce.utilisateur">Utilisateur</span></th>
+                    <th scope="col" ><span jhiTranslate="jHipsterApp.commerce.restaurant">Restaurant</span></th>
+                    <th scope="col" ><span jhiTranslate="jHipsterApp.commerce.autreCommerce">Autre Commerce</span></th>
                     <th scope="col" ><span jhiTranslate="jHipsterApp.commerce.panier">Panier</span></th>
                     <th scope="col"></th>
                 </tr>
@@ -34,8 +37,23 @@
                 <tr *ngFor="let commerce of commerce ;trackBy: trackId">
                     <td><a [routerLink]="['/commerce', commerce.id, 'view']">{{ commerce.id }}</a></td>
                     <td>{{ commerce.adresse }}</td>
-                    <td>{{ commerce.noteCommerce }}</td>
                     <td>{{ commerce.name }}</td>
+                    <td>{{ commerce.noteCommerce }}</td>
+                    <td>
+                        <div *ngIf="commerce.utilisateur">
+                            <a [routerLink]="['/utilisateur', commerce.utilisateur?.id, 'view']" >{{ commerce.utilisateur?.id }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="commerce.restaurant">
+                            <a [routerLink]="['/restaurant', commerce.restaurant?.id, 'view']" >{{ commerce.restaurant?.id }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="commerce.autreCommerce">
+                            <a [routerLink]="['/autre-commerce', commerce.autreCommerce?.id, 'view']" >{{ commerce.autreCommerce?.id }}</a>
+                        </div>
+                    </td>
                     <td>
                         <div *ngIf="commerce.panier">
                             <a [routerLink]="['/panier', commerce.panier?.id, 'view']" >{{ commerce.panier?.id }}</a>

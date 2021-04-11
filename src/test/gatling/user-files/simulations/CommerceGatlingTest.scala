@@ -73,8 +73,8 @@ class CommerceGatlingTest extends Simulation {
             .body(StringBody("""{
                 "id":null
                 , "adresse":"SAMPLE_TEXT"
-                , "noteCommerce":"0"
                 , "name":"SAMPLE_TEXT"
+                , "noteCommerce":"0"
                 }""")).asJson
             .check(status.is(201))
             .check(headerRegex("Location", "(.*)").saveAs("new_commerce_url"))).exitHereIfFailed

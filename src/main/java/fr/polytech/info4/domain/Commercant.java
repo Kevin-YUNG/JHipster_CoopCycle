@@ -1,5 +1,6 @@
 package fr.polytech.info4.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
@@ -27,6 +28,10 @@ public class Commercant implements Serializable {
     @Column(name = "adresse", nullable = false)
     private String adresse;
 
+    @OneToOne(mappedBy = "commercant")
+    @JsonIgnore
+    private Utilisateur utilisateur;
+
     // jhipster-needle-entity-add-field - JHipster will add fields here
     public Long getId() {
         return id;
@@ -47,6 +52,19 @@ public class Commercant implements Serializable {
 
     public void setAdresse(String adresse) {
         this.adresse = adresse;
+    }
+
+    public Utilisateur getUtilisateur() {
+        return utilisateur;
+    }
+
+    public Commercant utilisateur(Utilisateur utilisateur) {
+        this.utilisateur = utilisateur;
+        return this;
+    }
+
+    public void setUtilisateur(Utilisateur utilisateur) {
+        this.utilisateur = utilisateur;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 

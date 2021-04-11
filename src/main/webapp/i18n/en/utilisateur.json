@@ -20,6 +20,9 @@
       "firstname": "Firstname",
       "mail": "Mail",
       "tel": "Tel",
+      "client": "Client",
+      "commercant": "Commercant",
+      "coursier": "Coursier",
       "panier": "Panier",
       "commerce": "Commerce"
     }

@@ -26,12 +26,6 @@
                         <a [routerLink]="['/commerce', commerce?.id, 'view']">{{ commerce.id }}</a>{{ last ? '' : ', ' }}
                     </span>
                 </dd>
-                <dt><span jhiTranslate="jHipsterApp.produit.commerce">Commerce</span></dt>
-                <dd>
-                    <div *ngIf="produit.commerce">
-                        <a [routerLink]="['/commerce', produit.commerce?.id, 'view']">{{ produit.commerce?.id }}</a>
-                    </div>
-                </dd>
             </dl>
 
             <button type="submit"

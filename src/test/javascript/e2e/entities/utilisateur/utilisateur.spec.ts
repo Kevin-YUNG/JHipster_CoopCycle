@@ -44,15 +44,17 @@ describe('Utilisateur e2e test', () => {
     await utilisateurComponentsPage.clickOnCreateButton();
 
     await promise.all([
-      utilisateurUpdatePage.setNameInput('name'),
-      utilisateurUpdatePage.setFirstnameInput('firstname'),
+      utilisateurUpdatePage.setNameInput('Zdcdx1'),
+      utilisateurUpdatePage.setFirstnameInput('Dbh5'),
       utilisateurUpdatePage.setMailInput('mail'),
       utilisateurUpdatePage.setTelInput('tel'),
-      utilisateurUpdatePage.commerceSelectLastOption(),
+      utilisateurUpdatePage.clientSelectLastOption(),
+      utilisateurUpdatePage.commercantSelectLastOption(),
+      utilisateurUpdatePage.coursierSelectLastOption(),
     ]);
 
-    expect(await utilisateurUpdatePage.getNameInput()).to.eq('name', 'Expected Name value to be equals to name');
-    expect(await utilisateurUpdatePage.getFirstnameInput()).to.eq('firstname', 'Expected Firstname value to be equals to firstname');
+    expect(await utilisateurUpdatePage.getNameInput()).to.eq('Zdcdx1', 'Expected Name value to be equals to Zdcdx1');
+    expect(await utilisateurUpdatePage.getFirstnameInput()).to.eq('Dbh5', 'Expected Firstname value to be equals to Dbh5');
     expect(await utilisateurUpdatePage.getMailInput()).to.eq('mail', 'Expected Mail value to be equals to mail');
     expect(await utilisateurUpdatePage.getTelInput()).to.eq('tel', 'Expected Tel value to be equals to tel');
 

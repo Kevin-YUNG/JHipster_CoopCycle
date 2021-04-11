@@ -1,5 +1,6 @@
 package fr.polytech.info4.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
@@ -7,8 +8,6 @@ import javax.persistence.*;
 import javax.validation.constraints.*;
 
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
 
 /**
  * A Client.
@@ -45,9 +44,9 @@ public class Client implements Serializable {
     @Column(name = "address", nullable = false)
     private String address;
 
-    @OneToMany(mappedBy = "client")
-    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    private Set<Commande> commandes = new HashSet<>();
+    @OneToOne(mappedBy = "client")
+    @JsonIgnore
+    private Utilisateur utilisateur;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
     public Long getId() {
@@ -123,29 +122,17 @@ public class Client implements Serializable {
         this.address = address;
     }
 
-    public Set<Commande> getCommandes() {
-        return commandes;
+    public Utilisateur getUtilisateur() {
+        return utilisateur;
     }
 
-    public Client commandes(Set<Commande> commandes) {
-        this.commandes = commandes;
+    public Client utilisateur(Utilisateur utilisateur) {
+        this.utilisateur = utilisateur;
         return this;
     }
 
-    public Client addCommande(Commande commande) {
-        this.commandes.add(commande);
-        commande.setClient(this);
-        return this;
-    }
-
-    public Client removeCommande(Commande commande) {
-        this.commandes.remove(commande);
-        commande.setClient(null);
-        return this;
-    }
-
-    public void setCommandes(Set<Commande> commandes) {
-        this.commandes = commandes;
+    public void setUtilisateur(Utilisateur utilisateur) {
+        this.utilisateur = utilisateur;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 

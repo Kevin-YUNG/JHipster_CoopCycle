@@ -1,11 +1,11 @@
 export const enum TypeRestaurant {
-  Tacos = 'Tacos',
+  TACOS = 'TACOS',
 
-  Pizzeria = 'Pizzeria',
+  PIZZERIA = 'PIZZERIA',
 
-  Creperie = 'Creperie',
+  CREPERIE = 'CREPERIE',
 
-  Burger = 'Burger',
+  BURGER = 'BURGER',
 
-  Boulangerie = 'Boulangerie',
+  BOULANGERIE = 'BOULANGERIE',
 }

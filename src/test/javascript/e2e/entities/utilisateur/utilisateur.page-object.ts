@@ -34,7 +34,9 @@ export class UtilisateurUpdatePage {
   mailInput = element(by.id('field_mail'));
   telInput = element(by.id('field_tel'));
 
-  commerceSelect = element(by.id('field_commerce'));
+  clientSelect = element(by.id('field_client'));
+  commercantSelect = element(by.id('field_commercant'));
+  coursierSelect = element(by.id('field_coursier'));
 
   async getPageTitle(): Promise<string> {
     return this.pageTitle.getAttribute('jhiTranslate');
@@ -72,20 +74,52 @@ export class UtilisateurUpdatePage {
     return await this.telInput.getAttribute('value');
   }
 
-  async commerceSelectLastOption(): Promise<void> {
-    await this.commerceSelect.all(by.tagName('option')).last().click();
+  async clientSelectLastOption(): Promise<void> {
+    await this.clientSelect.all(by.tagName('option')).last().click();
   }
 
-  async commerceSelectOption(option: string): Promise<void> {
-    await this.commerceSelect.sendKeys(option);
+  async clientSelectOption(option: string): Promise<void> {
+    await this.clientSelect.sendKeys(option);
   }
 
-  getCommerceSelect(): ElementFinder {
-    return this.commerceSelect;
+  getClientSelect(): ElementFinder {
+    return this.clientSelect;
   }
 
-  async getCommerceSelectedOption(): Promise<string> {
-    return await this.commerceSelect.element(by.css('option:checked')).getText();
+  async getClientSelectedOption(): Promise<string> {
+    return await this.clientSelect.element(by.css('option:checked')).getText();
+  }
+
+  async commercantSelectLastOption(): Promise<void> {
+    await this.commercantSelect.all(by.tagName('option')).last().click();
+  }
+
+  async commercantSelectOption(option: string): Promise<void> {
+    await this.commercantSelect.sendKeys(option);
+  }
+
+  getCommercantSelect(): ElementFinder {
+    return this.commercantSelect;
+  }
+
+  async getCommercantSelectedOption(): Promise<string> {
+    return await this.commercantSelect.element(by.css('option:checked')).getText();
+  }
+
+  async coursierSelectLastOption(): Promise<void> {
+    await this.coursierSelect.all(by.tagName('option')).last().click();
+  }
+
+  async coursierSelectOption(option: string): Promise<void> {
+    await this.coursierSelect.sendKeys(option);
+  }
+
+  getCoursierSelect(): ElementFinder {
+    return this.coursierSelect;
+  }
+
+  async getCoursierSelectedOption(): Promise<string> {
+    return await this.coursierSelect.element(by.css('option:checked')).getText();
   }
 
   async save(): Promise<void> {

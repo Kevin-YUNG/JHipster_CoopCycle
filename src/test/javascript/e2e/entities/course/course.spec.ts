@@ -44,9 +44,7 @@ describe('Course e2e test', () => {
       courseUpdatePage.setPrixInput('5'),
       courseUpdatePage.setDistanceInput('5'),
       courseUpdatePage.setDateInput('2000-12-31'),
-      courseUpdatePage.coursierSelectLastOption(),
       courseUpdatePage.panierSelectLastOption(),
-      courseUpdatePage.coursierSelectLastOption(),
     ]);
 
     expect(await courseUpdatePage.getPrixInput()).to.eq('5', 'Expected prix value to be equals to 5');

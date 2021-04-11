@@ -40,9 +40,7 @@ describe('Restaurant e2e test', () => {
 
     await restaurantComponentsPage.clickOnCreateButton();
 
-    await promise.all([restaurantUpdatePage.setNameInput('name'), restaurantUpdatePage.restoSelectLastOption()]);
-
-    expect(await restaurantUpdatePage.getNameInput()).to.eq('name', 'Expected Name value to be equals to name');
+    await promise.all([restaurantUpdatePage.restoSelectLastOption()]);
 
     await restaurantUpdatePage.save();
     expect(await restaurantUpdatePage.getSaveButton().isPresent(), 'Expected save button disappear').to.be.false;

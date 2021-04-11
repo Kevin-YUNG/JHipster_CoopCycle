@@ -20,22 +20,10 @@
                 <dd>
                     <span>{{ course.date }}</span>
                 </dd>
-                <dt><span jhiTranslate="jHipsterApp.course.coursier">Coursier</span></dt>
-                <dd>
-                    <div *ngIf="course.coursier">
-                        <a [routerLink]="['/coursier', course.coursier?.id, 'view']">{{ course.coursier?.id }}</a>
-                    </div>
-                </dd>
                 <dt><span jhiTranslate="jHipsterApp.course.panier">Panier</span></dt>
                 <dd>
                     <div *ngIf="course.panier">
                         <a [routerLink]="['/panier', course.panier?.id, 'view']">{{ course.panier?.id }}</a>
-                    </div>
-                </dd>
-                <dt><span jhiTranslate="jHipsterApp.course.coursier">Coursier</span></dt>
-                <dd>
-                    <div *ngIf="course.coursier">
-                        <a [routerLink]="['/coursier', course.coursier?.id, 'view']">{{ course.coursier?.id }}</a>
                     </div>
                 </dd>
             </dl>

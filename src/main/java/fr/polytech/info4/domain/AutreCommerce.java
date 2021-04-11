@@ -1,5 +1,6 @@
 package fr.polytech.info4.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
@@ -24,8 +25,12 @@ public class AutreCommerce implements Serializable {
     private Long id;
 
     @NotNull
-    @Column(name = "name", nullable = false)
-    private String name;
+    @Column(name = "type_commerce", nullable = false)
+    private String typeCommerce;
+
+    @OneToOne(mappedBy = "autreCommerce")
+    @JsonIgnore
+    private Commerce commerce;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
     public Long getId() {
@@ -36,17 +41,30 @@ public class AutreCommerce implements Serializable {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getTypeCommerce() {
+        return typeCommerce;
     }
 
-    public AutreCommerce name(String name) {
-        this.name = name;
+    public AutreCommerce typeCommerce(String typeCommerce) {
+        this.typeCommerce = typeCommerce;
         return this;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setTypeCommerce(String typeCommerce) {
+        this.typeCommerce = typeCommerce;
+    }
+
+    public Commerce getCommerce() {
+        return commerce;
+    }
+
+    public AutreCommerce commerce(Commerce commerce) {
+        this.commerce = commerce;
+        return this;
+    }
+
+    public void setCommerce(Commerce commerce) {
+        this.commerce = commerce;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 
@@ -71,7 +89,7 @@ public class AutreCommerce implements Serializable {
     public String toString() {
         return "AutreCommerce{" +
             "id=" + getId() +
-            ", name='" + getName() + "'" +
+            ", typeCommerce='" + getTypeCommerce() + "'" +
             "}";
     }
 }

@@ -43,9 +43,12 @@ describe('AutreCommerce e2e test', () => {
 
     await autreCommerceComponentsPage.clickOnCreateButton();
 
-    await promise.all([autreCommerceUpdatePage.setNameInput('name')]);
+    await promise.all([autreCommerceUpdatePage.setTypeCommerceInput('typeCommerce')]);
 
-    expect(await autreCommerceUpdatePage.getNameInput()).to.eq('name', 'Expected Name value to be equals to name');
+    expect(await autreCommerceUpdatePage.getTypeCommerceInput()).to.eq(
+      'typeCommerce',
+      'Expected TypeCommerce value to be equals to typeCommerce'
+    );
 
     await autreCommerceUpdatePage.save();
     expect(await autreCommerceUpdatePage.getSaveButton().isPresent(), 'Expected save button disappear').to.be.false;

@@ -54,7 +54,7 @@ describe('Service Tests', () => {
       it('should update a AutreCommerce', () => {
         const returnedFromService = Object.assign(
           {
-            name: 'BBBBBB',
+            typeCommerce: 'BBBBBB',
           },
           elemDefault
         );
@@ -71,7 +71,7 @@ describe('Service Tests', () => {
       it('should return a list of AutreCommerce', () => {
         const returnedFromService = Object.assign(
           {
-            name: 'BBBBBB',
+            typeCommerce: 'BBBBBB',
           },
           elemDefault
         );

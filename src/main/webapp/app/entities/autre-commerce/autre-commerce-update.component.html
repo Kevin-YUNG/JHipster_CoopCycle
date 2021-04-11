@@ -12,12 +12,12 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="jHipsterApp.autreCommerce.name" for="field_name">Name</label>
-                    <input type="text" class="form-control" name="name" id="field_name"
-                           formControlName="name"/>
-                    <div *ngIf="editForm.get('name')!.invalid && (editForm.get('name')!.dirty || editForm.get('name')!.touched)">
+                    <label class="form-control-label" jhiTranslate="jHipsterApp.autreCommerce.typeCommerce" for="field_typeCommerce">Type Commerce</label>
+                    <input type="text" class="form-control" name="typeCommerce" id="field_typeCommerce"
+                           formControlName="typeCommerce"/>
+                    <div *ngIf="editForm.get('typeCommerce')!.invalid && (editForm.get('typeCommerce')!.dirty || editForm.get('typeCommerce')!.touched)">
                         <small class="form-text text-danger"
-                               *ngIf="editForm.get('name')?.errors?.required" jhiTranslate="entity.validation.required">
+                               *ngIf="editForm.get('typeCommerce')?.errors?.required" jhiTranslate="entity.validation.required">
                         This field is required.
                         </small>
                     </div>

@@ -18,6 +18,8 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
 
 /**
  * REST controller for managing {@link fr.polytech.info4.domain.AutreCommerce}.
@@ -83,10 +85,18 @@ public class AutreCommerceResource {
     /**
      * {@code GET  /autre-commerces} : get all the autreCommerces.
      *
+     * @param filter the filter of the request.
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of autreCommerces in body.
      */
     @GetMapping("/autre-commerces")
-    public List<AutreCommerce> getAllAutreCommerces() {
+    public List<AutreCommerce> getAllAutreCommerces(@RequestParam(required = false) String filter) {
+        if ("commerce-is-null".equals(filter)) {
+            log.debug("REST request to get all AutreCommerces where commerce is null");
+            return StreamSupport
+                .stream(autreCommerceRepository.findAll().spliterator(), false)
+                .filter(autreCommerce -> autreCommerce.getCommerce() == null)
+                .collect(Collectors.toList());
+        }
         log.debug("REST request to get all AutreCommerces");
         return autreCommerceRepository.findAll();
     }

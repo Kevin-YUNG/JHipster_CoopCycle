@@ -19,10 +19,7 @@
       "prix": "Prix",
       "distance": "Distance",
       "date": "Date",
-      "coursier": "Coursier",
-      "commande": "Commande",
-      "panier": "Panier",
-      "coursier": "Coursier"
+      "panier": "Panier"
     }
   }
 }

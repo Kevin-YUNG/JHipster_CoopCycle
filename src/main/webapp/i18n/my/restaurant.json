@@ -16,8 +16,8 @@
       "detail": {
         "title": "Restaurant"
       },
-      "name": "Name",
-      "resto": "Resto"
+      "resto": "Resto",
+      "commerce": "Commerce"
     }
   }
 }

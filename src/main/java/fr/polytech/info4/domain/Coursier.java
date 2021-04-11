@@ -8,8 +8,6 @@ import javax.persistence.*;
 import javax.validation.constraints.*;
 
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
 
 /**
  * A Coursier.
@@ -48,13 +46,9 @@ public class Coursier implements Serializable {
     @Column(name = "reviews", nullable = false)
     private Integer reviews;
 
-    @OneToMany(mappedBy = "coursier")
-    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    private Set<Course> courses = new HashSet<>();
-
     @OneToOne(mappedBy = "coursier")
     @JsonIgnore
-    private Course course;
+    private Utilisateur utilisateur;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
     public Long getId() {
@@ -130,42 +124,17 @@ public class Coursier implements Serializable {
         this.reviews = reviews;
     }
 
-    public Set<Course> getCourses() {
-        return courses;
+    public Utilisateur getUtilisateur() {
+        return utilisateur;
     }
 
-    public Coursier courses(Set<Course> courses) {
-        this.courses = courses;
+    public Coursier utilisateur(Utilisateur utilisateur) {
+        this.utilisateur = utilisateur;
         return this;
     }
 
-    public Coursier addCourse(Course course) {
-        this.courses.add(course);
-        course.setCoursier(this);
-        return this;
-    }
-
-    public Coursier removeCourse(Course course) {
-        this.courses.remove(course);
-        course.setCoursier(null);
-        return this;
-    }
-
-    public void setCourses(Set<Course> courses) {
-        this.courses = courses;
-    }
-
-    public Course getCourse() {
-        return course;
-    }
-
-    public Coursier course(Course course) {
-        this.course = course;
-        return this;
-    }
-
-    public void setCourse(Course course) {
-        this.course = course;
+    public void setUtilisateur(Utilisateur utilisateur) {
+        this.utilisateur = utilisateur;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 

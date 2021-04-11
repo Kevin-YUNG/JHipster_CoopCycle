@@ -12,10 +12,7 @@
     },
     {
       "fieldName": "distance",
-      "fieldType": "Float",
-      "fieldValidateRules": [
-        "required"
-      ]
+      "fieldType": "Float"
     },
     {
       "fieldName": "date",
@@ -27,31 +24,10 @@
   ],
   "relationships": [
     {
-      "relationshipType": "one-to-one",
-      "otherEntityName": "coursier",
-      "otherEntityRelationshipName": "course",
-      "relationshipName": "coursier",
-      "otherEntityField": "id",
-      "ownerSide": true
-    },
-    {
-      "relationshipType": "one-to-many",
-      "otherEntityName": "commande",
-      "otherEntityRelationshipName": "course",
-      "relationshipName": "commande"
-    },
-    {
       "relationshipType": "many-to-one",
       "otherEntityName": "panier",
       "otherEntityRelationshipName": "course",
       "relationshipName": "panier",
-      "otherEntityField": "id"
-    },
-    {
-      "relationshipType": "many-to-one",
-      "otherEntityName": "coursier",
-      "otherEntityRelationshipName": "course",
-      "relationshipName": "coursier",
       "otherEntityField": "id"
     }
   ],

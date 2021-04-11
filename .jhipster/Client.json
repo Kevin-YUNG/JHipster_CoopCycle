@@ -39,10 +39,11 @@
   ],
   "relationships": [
     {
-      "relationshipType": "one-to-many",
-      "otherEntityName": "commande",
+      "relationshipType": "one-to-one",
+      "otherEntityName": "utilisateur",
       "otherEntityRelationshipName": "client",
-      "relationshipName": "commande"
+      "relationshipName": "utilisateur",
+      "ownerSide": false
     }
   ],
   "changelogDate": "20210411184540",

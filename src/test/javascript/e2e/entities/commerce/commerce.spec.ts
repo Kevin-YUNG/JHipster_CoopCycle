@@ -42,14 +42,17 @@ describe('Commerce e2e test', () => {
 
     await promise.all([
       commerceUpdatePage.setAdresseInput('adresse'),
-      commerceUpdatePage.setNoteCommerceInput('5'),
       commerceUpdatePage.setNameInput('name'),
+      commerceUpdatePage.setNoteCommerceInput('5'),
+      commerceUpdatePage.utilisateurSelectLastOption(),
+      commerceUpdatePage.restaurantSelectLastOption(),
+      commerceUpdatePage.autreCommerceSelectLastOption(),
       commerceUpdatePage.panierSelectLastOption(),
     ]);
 
     expect(await commerceUpdatePage.getAdresseInput()).to.eq('adresse', 'Expected Adresse value to be equals to adresse');
-    expect(await commerceUpdatePage.getNoteCommerceInput()).to.eq('5', 'Expected noteCommerce value to be equals to 5');
     expect(await commerceUpdatePage.getNameInput()).to.eq('name', 'Expected Name value to be equals to name');
+    expect(await commerceUpdatePage.getNoteCommerceInput()).to.eq('5', 'Expected noteCommerce value to be equals to 5');
 
     await commerceUpdatePage.save();
     expect(await commerceUpdatePage.getSaveButton().isPresent(), 'Expected save button disappear').to.be.false;
